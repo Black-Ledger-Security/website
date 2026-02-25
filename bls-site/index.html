@@ -77,14 +77,24 @@
   display:flex;gap:16px;justify-content:center;
   animation:fadeInUp 0.8s ease 1.5s both;
 }
-.typing-container{margin-top:48px;animation:fadeInUp 0.8s ease 1.7s both}
-.typing-line{
-  display:block;overflow:hidden;white-space:nowrap;
-  border-right:2px solid var(--crimson);width:0;
-  font-size:13px;font-weight:400;letter-spacing:2px;
-  text-transform:uppercase;color:var(--text-muted);
-  margin:0 auto 8px;
-  animation:typing 2.5s steps(55) 2.2s forwards,blinkCaret 0.6s step-end 2.2s infinite;
+.typing-container{
+  margin-top:48px;animation:fadeInUp 0.8s ease 1.7s both;
+  align-self:stretch;
+  text-align:left;
+}
+.terminal-prompt{
+  display:flex;align-items:center;
+  font-size:14px;font-weight:400;letter-spacing:1px;
+  font-family:var(--mono);
+}
+.terminal-prefix{color:var(--text-muted);white-space:nowrap}
+.terminal-typed-area{display:flex;align-items:center}
+.terminal-text{color:var(--crimson-bright);white-space:nowrap}
+.typing-cursor{
+  display:inline-block;width:2px;height:1.15em;
+  background:#b41e1e;margin-left:1px;
+  vertical-align:text-bottom;
+  animation:blinkCaret 0.8s step-end infinite;
 }
 .stats-bar{
   background:var(--surface);
@@ -227,8 +237,7 @@
   0%,100%{filter:drop-shadow(0 0 3px rgba(180,30,30,0.2))}
   50%{filter:drop-shadow(0 0 12px rgba(180,30,30,0.7)) drop-shadow(0 0 24px rgba(180,30,30,0.3))}
 }
-@keyframes typing{from{width:0}to{width:100%}}
-@keyframes blinkCaret{from,to{border-color:transparent}50%{border-color:var(--crimson)}}
+@keyframes blinkCaret{from,to{opacity:0}50%{opacity:1}}
 
 
 @media(max-width:1024px){
@@ -249,7 +258,8 @@
   .hero-sub{font-size:12px;margin-bottom:28px;padding:0 4px}
   .hero-buttons{flex-direction:column;align-items:center;gap:12px}
   .btn-primary,.btn-secondary{width:100%;max-width:280px;text-align:center}
-  .typing-container{display:none}
+  .typing-container{margin-top:32px}
+  .terminal-prompt{font-size:10px}
   .stats-bar{padding:32px 0}
   .stats-grid{padding:0 20px;gap:12px}
   .stat-number{font-size:32px}
@@ -375,7 +385,9 @@
       <a href="/services.html" class="btn-secondary">View Services</a>
     </div>
     <div class="typing-container">
-      <div class="typing-line">Social Engineering &nbsp;// &nbsp;AI Security Testing &nbsp;// &nbsp;Adversary Simulation</div>
+      <div class="terminal-prompt">
+        <span class="terminal-prefix">operator@blackledgersec:/services$&nbsp;</span><span class="terminal-typed-area"><span class="terminal-text" id="typer"></span><span class="typing-cursor"></span></span>
+      </div>
     </div>
   </div>
 
@@ -513,6 +525,73 @@
 
 <script src="/js/main.js"></script>
 <script src="/js/particles.js"></script>
+<script>
+(function(){
+  var phrases = [
+    'Physical Penetration Testing',
+    'Social Engineering',
+    'AI / LLM Security Testing',
+    'Deepfake Social Engineering',
+    'OSINT & Threat Profiling',
+    'Adversary Simulation',
+    'Vishing Campaigns',
+    'Spear Phishing Operations'
+  ];
+  var el = document.getElementById('typer');
+  var cursor = document.querySelector('.typing-cursor');
+  if(!el||!cursor) return;
+  var phraseIndex = 0;
+  var charIndex = 0;
+  var isDeleting = false;
+  var typeSpeed = 70;
+  var deleteSpeed = 40;
+  var pauseStart = 400;
+  var startDelay = 2200;
+  var blinkCount = 3;
+  var blinkSpeed = 400;
+
+  function blinkThenDelete(blinks){
+    if(blinks <= 0){
+      cursor.style.animation='blinkCaret 0.8s step-end infinite';
+      isDeleting = true;
+      tick();
+      return;
+    }
+    cursor.style.animation='none';
+    cursor.style.opacity='1';
+    setTimeout(function(){
+      cursor.style.opacity='0';
+      setTimeout(function(){
+        blinkThenDelete(blinks - 1);
+      }, blinkSpeed);
+    }, blinkSpeed);
+  }
+
+  function tick(){
+    var current = phrases[phraseIndex];
+    if(!isDeleting){
+      charIndex++;
+      el.textContent = current.substring(0, charIndex);
+      if(charIndex === current.length){
+        blinkThenDelete(blinkCount);
+        return;
+      }
+      setTimeout(tick, typeSpeed);
+    } else {
+      charIndex--;
+      el.textContent = current.substring(0, charIndex);
+      if(charIndex === 0){
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        setTimeout(tick, pauseStart);
+        return;
+      }
+      setTimeout(tick, deleteSpeed);
+    }
+  }
+  setTimeout(tick, startDelay);
+})();
+</script>
 </body>
 </html>
 
