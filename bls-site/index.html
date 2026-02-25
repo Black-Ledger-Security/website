@@ -26,23 +26,6 @@
   display:flex;flex-direction:column;align-items:center;
 }
 .hero-cube{margin-bottom:24px;opacity:0;animation:cubeReveal 1.4s ease 0.1s both}
-.cube-glow-wrapper{
-  position:relative;display:inline-block;
-  opacity:0;
-  animation:cubeGlowIn 0.6s ease 1.5s both, cubeGlow 3s ease 2.1s infinite;
-}
-@keyframes cubeGlowIn{
-  from{opacity:0}
-  to{opacity:1}
-}
-@keyframes cubeGlow{
-  0%,100%{
-    filter:drop-shadow(0 0 4px rgba(180,30,30,0.2)) drop-shadow(0 0 8px rgba(180,30,30,0.1));
-  }
-  50%{
-    filter:drop-shadow(0 0 15px rgba(180,30,30,0.7)) drop-shadow(0 0 30px rgba(180,30,30,0.4)) drop-shadow(0 0 50px rgba(180,30,30,0.15));
-  }
-}
 .hero-brand-name{
   font-family:var(--serif);font-size:52px;font-weight:400;
   letter-spacing:14px;color:#e8e4df;text-transform:uppercase;
@@ -202,10 +185,14 @@
 .dossier-card-excerpt{font-size:13px;color:var(--text-dim);line-height:1.6}
 
 @keyframes cubeReveal{
-  0%{opacity:0;transform:scale(0.8) rotateY(-20deg)}
-  50%{opacity:1}
+  0%{opacity:0;transform:scale(0.8) rotateY(-20deg);filter:blur(10px)}
+  50%{opacity:1;filter:blur(0)}
   70%{transform:scale(1.03) rotateY(2deg)}
-  100%{opacity:1;transform:scale(1) rotateY(0deg)}
+  100%{opacity:1;transform:scale(1) rotateY(0deg);filter:blur(0)}
+}
+@keyframes spineGlow{
+  0%,100%{filter:drop-shadow(0 0 3px rgba(180,30,30,0.2))}
+  50%{filter:drop-shadow(0 0 12px rgba(180,30,30,0.7)) drop-shadow(0 0 24px rgba(180,30,30,0.3))}
 }
 @keyframes typing{from{width:0}to{width:100%}}
 @keyframes blinkCaret{from,to{border-color:transparent}50%{border-color:var(--crimson)}}
@@ -316,9 +303,7 @@
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-cube">
-      <div class="cube-glow-wrapper">
-        <svg class="logo-cube" width="120" height="140"><use href="#bls-cube"/></svg>
-      </div>
+      <svg class="logo-cube" width="120" height="140" style="animation:spineGlow 3s ease infinite"><use href="#bls-cube"/></svg>
     </div>
     <div class="hero-brand-name">Black Ledger</div>
     <div class="hero-brand-sub">Security</div>
