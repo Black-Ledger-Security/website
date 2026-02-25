@@ -302,35 +302,41 @@
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-cube">
-      <svg class="hero-logo-cube" width="180" height="200" viewBox="-30 -10 180 160">
-        <defs>
-          <!-- Animated glow filter: pulsates via SVG <animate> so it survives CSS minification -->
-          <filter id="heroGlow" x="-80%" y="-80%" width="260%" height="260%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur">
-              <animate attributeName="stdDeviation" values="4;12;4" dur="3s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1"/>
-            </feGaussianBlur>
-            <feColorMatrix in="blur" type="matrix"
-              values="1 0 0 0 0.35
-                      0 0 0 0 0.02
-                      0 0 0 0 0.02
-                      0 0 0 0.7 0" result="coloredGlow">
-              <animate attributeName="values"
-                values="1 0 0 0 0.35 0 0 0 0 0.02 0 0 0 0 0.02 0 0 0 0.4 0;
-                        1 0 0 0 0.55 0 0 0 0 0.04 0 0 0 0 0.04 0 0 0 0.85 0;
-                        1 0 0 0 0.35 0 0 0 0 0.02 0 0 0 0 0.02 0 0 0 0.4 0"
-                dur="3s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1"/>
-            </feColorMatrix>
-            <feMerge>
-              <feMergeNode in="coloredGlow"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-        </defs>
-        <g filter="url(#heroGlow)">
-          <use href="#bls-cube"/>
-        </g>
-      </svg>
-    </div>
+      <div class="hero-cube">
+        <svg class="hero-logo-cube" width="180" height="200" viewBox="-30 -10 180 160" overflow="visible">
+          <defs>
+            <filter id="heroGlow" x="-100%" y="-100%" width="300%" height="300%" filterUnits="objectBoundingBox">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur">
+                <animate attributeName="stdDeviation" values="6;16;6" dur="3s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1"/>
+              </feGaussianBlur>
+              <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0.35 0 0 0 0 0.02 0 0 0 0 0.02 0 0 0 0.5 0" result="coloredGlow">
+                <animate attributeName="values" values="1 0 0 0 0.35 0 0 0 0 0.02 0 0 0 0 0.02 0 0 0 0.4 0;1 0 0 0 0.6 0 0 0 0 0.05 0 0 0 0 0.05 0 0 0 0.9 0;1 0 0 0 0.35 0 0 0 0 0.02 0 0 0 0 0.02 0 0 0 0.4 0" dur="3s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1"/>
+              </feColorMatrix>
+              <feMerge>
+                <feMergeNode in="coloredGlow"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+          <g filter="url(#heroGlow)">
+            <!-- Inlined cube geometry (not <use>) so glow filter is not clipped -->
+            <polygon points="60,18 108,34 60,50 12,34" fill="url(#cubeTop)" opacity="0.9"/>
+            <polygon points="12,34 60,50 60,118 12,102" fill="url(#cubeLeft)" opacity="0.85"/>
+            <polygon points="108,34 60,50 60,118 108,102" fill="url(#cubeRight)" opacity="0.8"/>
+            <line x1="60" y1="18" x2="12" y2="34" stroke="#3a3a42" stroke-width="0.5" opacity="0.4"/>
+            <line x1="60" y1="18" x2="108" y2="34" stroke="#3a3a42" stroke-width="0.5" opacity="0.4"/>
+            <line x1="12" y1="34" x2="12" y2="102" stroke="#2a2a32" stroke-width="0.5" opacity="0.3"/>
+            <line x1="108" y1="34" x2="108" y2="102" stroke="#2a2a32" stroke-width="0.5" opacity="0.25"/>
+            <line x1="12" y1="102" x2="60" y2="118" stroke="#2a2a32" stroke-width="0.5" opacity="0.25"/>
+            <line x1="108" y1="102" x2="60" y2="118" stroke="#2a2a32" stroke-width="0.5" opacity="0.25"/>
+            <line x1="60" y1="18" x2="60" y2="118" stroke="url(#spineGrad)" stroke-width="12" filter="url(#spineBlurWide)" opacity="0.25"/>
+            <line x1="60" y1="18" x2="60" y2="118" stroke="url(#spineGrad)" stroke-width="6" filter="url(#spineBlur)" opacity="0.5"/>
+            <line x1="60" y1="18" x2="60" y2="118" stroke="#cc2222" stroke-width="3" opacity="0.9"/>
+            <line x1="60" y1="20" x2="60" y2="116" stroke="#ee3333" stroke-width="1.5" opacity="0.7"/>
+            <line x1="60" y1="40" x2="60" y2="100" stroke="#ff5555" stroke-width="0.8" opacity="0.4"/>
+          </g>
+        </svg>
+      </div>
     <div class="hero-brand-name">Black Ledger</div>
     <div class="hero-brand-sub">Security</div>
     <div class="hero-tag">Veteran Owned Small Business</div>
