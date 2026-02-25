@@ -25,7 +25,22 @@
   max-width:900px;padding:0 32px;
   display:flex;flex-direction:column;align-items:center;
 }
-.hero-cube{margin-bottom:24px;opacity:0;animation:cubeReveal 1.4s ease 0.1s both}
+.hero-cube{
+  margin-bottom:24px;opacity:0;position:relative;
+  animation:cubeReveal 1.4s ease 0.1s both;
+}
+.hero-cube::after{
+  content:'';position:absolute;
+  top:15%;left:10%;right:10%;bottom:10%;
+  border-radius:50%;
+  background:radial-gradient(ellipse at center, rgba(180,30,30,0.4) 0%, rgba(180,30,30,0) 70%);
+  opacity:0;z-index:-1;
+  animation:cubeGlowPulse 3s ease 1.5s infinite;
+}
+@keyframes cubeGlowPulse{
+  0%,100%{opacity:0.2;transform:scale(0.95)}
+  50%{opacity:1;transform:scale(1.15)}
+}
 .hero-brand-name{
   font-family:var(--serif);font-size:52px;font-weight:400;
   letter-spacing:14px;color:#e8e4df;text-transform:uppercase;
@@ -291,7 +306,7 @@
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-cube">
-      <svg class="logo-cube" width="120" height="140" style="animation:spineGlow 3s ease infinite"><use href="#bls-cube"/></svg>
+      <svg class="logo-cube" width="120" height="140"><use href="#bls-cube"/></svg>
     </div>
     <div class="hero-brand-name">Black Ledger</div>
     <div class="hero-brand-sub">Security</div>
