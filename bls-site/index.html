@@ -156,6 +156,30 @@
   color:#fff;margin-bottom:8px;
 }
 .about-card-sub{font-size:12px;color:var(--text-dim);line-height:1.7}
+.pricing-tier{
+  background:var(--obsidian-mid);border:1px solid var(--border);
+  padding:32px;border-radius:4px;transition:border-color 0.3s;
+  margin-bottom:16px;
+}
+.pricing-tier:last-child{margin-bottom:0}
+.pricing-tier:hover{border-color:rgba(180,30,30,0.3)}
+.pricing-tier-label{
+  font-size:10px;font-weight:600;letter-spacing:2px;
+  text-transform:uppercase;color:var(--crimson);margin-bottom:10px;
+}
+.pricing-tier-range{
+  font-family:var(--serif);font-size:32px;font-weight:700;
+  color:#fff;margin-bottom:6px;
+}
+.pricing-tier-duration{
+  font-size:11px;font-weight:500;letter-spacing:1px;
+  color:var(--text-muted);margin-bottom:14px;
+}
+.pricing-tier-desc{font-size:12px;color:var(--text-dim);line-height:1.7;margin-bottom:16px}
+.pricing-tier-compare{
+  font-size:11px;color:var(--text-muted);font-style:italic;
+  padding-top:12px;border-top:1px solid var(--border);
+}
 .lifecycle-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:56px}
 .lifecycle-step{
   background:var(--surface);border:1px solid var(--border);
@@ -235,6 +259,8 @@
   .about-card{padding:20px}
   .about-card-sub{word-break:break-word;overflow-wrap:break-word}
   .about-card-value{font-size:22px;word-break:break-word}
+  .pricing-tier-range{font-size:26px}
+  .pricing-tier{padding:24px 20px}
   .section-title{font-size:28px}
   .section-desc{font-size:12px}
   .lifecycle-steps{grid-template-columns:1fr;margin-top:40px}
@@ -377,21 +403,40 @@
     <a class="service-card" href="/services.html#osint"><div class="service-icon">&#9681;</div><div class="service-name">OSINT &amp; Threat Profiling</div><div class="service-desc">Comprehensive digital footprint analysis, exposed credential assessment, and executive threat profiling. We show you what an adversary already knows about your organization.</div><div class="service-tag">Intelligence Collection &#8594;</div></a>
     <a class="service-card" href="/services.html#ai-llm"><div class="service-icon">&#10064;</div><div class="service-name">AI / LLM Security Testing</div><div class="service-desc">Prompt injection, jailbreaking, guardrail bypass, data exfiltration, and tool exploitation testing against your deployed language models and AI-powered applications.</div><div class="service-tag">Emerging Threat &#8594;</div></a>
     <a class="service-card" href="/services.html#deepfake"><div class="service-icon">&#9676;</div><div class="service-name">Deepfake AI Social Engineering</div><div class="service-desc">Next-generation vishing using voice cloning and video deepfake technology. Test whether your organization can detect and respond to AI-generated impersonation attacks.</div><div class="service-tag">Novel Capability &#8594;</div></a>
-    <a class="service-card" href="/services.html#redteam"><div class="service-icon">&#9733;</div><div class="service-name">Red Team Operations</div><div class="service-desc">Combined physical, social, and digital adversary simulation. Multi-phase operations that chain attack vectors to demonstrate real-world compromise scenarios end to end.</div><div class="service-tag">Full Spectrum &#8594;</div></a>
+    <a class="service-card" href="/services.html#redteam"><div class="service-icon">&#9733;</div><div class="service-name">Adversary Simulation</div><div class="service-desc">Threat-profile-driven operations combining extensive surveillance, advanced pretexting, social engineering, physical intrusion, and network implant deployment. Custom-built around how a real adversary would target your organization.</div><div class="service-tag">Full Spectrum &#8594;</div></a>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section class="about-section" id="about">
+<!-- WHY BLACK LEDGER -->
+<section class="about-section" id="advantage">
   <div class="about-inner">
     <div class="about-text reveal">
-      <div class="section-tag">The Operator</div>
-      <div class="section-title">Founded by a Marine Corps Veteran</div>
-      <div class="about-body">Black Ledger Security was founded by a career penetration tester and Marine Corps veteran with over 15 years of experience across cybersecurity, intelligence, and special operations.<br><br>After years of leading social engineering teams and breaching secured facilities for Fortune 500 companies, government agencies, and international organizations, the mission became clear: most organizations are not prepared for the threats they cannot see on a dashboard.<br><br>We specialize in the human attack surface because that is where adversaries are investing. Physical intrusion, voice manipulation, AI-enabled deception, and the social engineering tradecraft that bypasses every technical control you own.</div>
+      <div class="section-tag">The Advantage</div>
+      <div class="section-title">Boutique Expertise.<br>No Enterprise Markup.</div>
+      <div class="about-body">Large security firms charge enterprise rates and hand your engagement to a rotating cast of junior analysts you will never meet. You pay for their overhead, their sales team, and their brand name.<br><br>Black Ledger operates differently. When you hire us, the person who scopes your engagement is the same operator who executes it, writes the report, and walks your team through remediation. You build a direct, trusted relationship with a senior practitioner who knows your environment, your threat profile, and your security goals.<br><br>No account managers. No handoffs. No inflated invoices. Just experienced offensive security work delivered at a price point that reflects what the work actually costs, not what a corporate billing department decides you can afford.</div>
     </div>
     <div class="about-visual reveal">
-      <div class="about-card"><div class="about-card-label">Background</div><div class="about-card-value">Real World Operational Experience</div><div class="about-card-sub">Over a decade of combined service across the United States Marine Corps and the private sector. Military career included assignments to Marine Corps Forces Special Operations Command (MARSOC), serving on a Marine Special Operations Team in direct support of special operations and intelligence agency missions across multiple theaters and joint task forces, with deployments to the CENTCOM and INDOPACOM areas of responsibility. Transitioned into private sector offensive security in 2021 and has since led social engineering teams, conducted solo physical penetration tests against secured corporate and government facilities, and delivered hundreds of assessments across financial services, healthcare, manufacturing, defense, and critical infrastructure sectors.</div></div>
-      <div class="about-card"><div class="about-card-label">Current Focus</div><div class="about-card-value">AI Threat Landscape</div><div class="about-card-sub">Researching and testing how large language models, deepfake technology, and agentic AI systems are creating new attack vectors for social engineering and organizational compromise. Author of Dark Dossier, a weekly threat intelligence publication covering AI security and emerging offensive techniques.</div></div>
+      <div class="pricing-tier">
+        <div class="pricing-tier-label">Targeted Assessment</div>
+        <div class="pricing-tier-range">$3,000 &ndash; $8,000</div>
+        <div class="pricing-tier-duration">1 &ndash; 2 weeks</div>
+        <div class="pricing-tier-desc">Single-vector engagements: vishing campaign, phishing simulation, OSINT threat profile, physical security walkthrough, or AI/LLM security test. Scoped to one objective with a full written report and remediation guidance.</div>
+        <div class="pricing-tier-compare">Industry average: $8,000 &ndash; $20,000</div>
+      </div>
+      <div class="pricing-tier">
+        <div class="pricing-tier-label">Comprehensive Campaign</div>
+        <div class="pricing-tier-range">$8,000 &ndash; $20,000</div>
+        <div class="pricing-tier-duration">2 &ndash; 4 weeks</div>
+        <div class="pricing-tier-desc">Multi-vector operations combining physical penetration testing, social engineering, and OSINT. Multiple facilities or departments in scope. Executive and technical reporting with prioritized remediation.</div>
+        <div class="pricing-tier-compare">Industry average: $20,000 &ndash; $50,000</div>
+      </div>
+      <div class="pricing-tier">
+        <div class="pricing-tier-label">Adversary Simulation</div>
+        <div class="pricing-tier-range">$20,000 &ndash; $45,000</div>
+        <div class="pricing-tier-duration">4 &ndash; 8 weeks</div>
+        <div class="pricing-tier-desc">Multi-phase operations tailored to your organization's specific threat profile. Begins with extensive physical and digital surveillance, target development, and advanced pretext engineering. Progresses through social engineering, physical intrusion, and network implant deployment to demonstrate real-world compromise scenarios from initial reconnaissance through objective completion. Every operation is custom-built around how a motivated adversary would actually target your organization, not a generic playbook.</div>
+        <div class="pricing-tier-compare">Industry average: $45,000 &ndash; $120,000+</div>
+      </div>
     </div>
   </div>
 </section>
@@ -417,9 +462,9 @@
     <div class="section-desc">Weekly threat intelligence covering AI security, social engineering, and emerging offensive techniques. Research that informs how we test and how you should defend.</div>
     <a href="https://darkdossier.substack.com" class="btn-primary" target="_blank">Subscribe Free</a>
     <div class="dossier-preview">
-      <a class="dossier-card" href="https://open.substack.com/pub/darkdossier/p/ai-is-the-new-social-engineer-llms?utm_campaign=post&utm_medium=web" target="_blank"><div class="dossier-card-tag">AI Threats</div><div class="dossier-card-title">The Voice on the Line Is Not Human</div><div class="dossier-card-excerpt">AI-powered vishing attacks surged 442% in 2024. Voice cloning kits cost five dollars. Inside the emerging threat landscape that most organizations are not prepared for.</div></a>
-      <a class="dossier-card" href="https://open.substack.com/pub/darkdossier/p/everyone-wants-an-ai-butler-nobodys?r=7pat1d&utm_campaign=post&utm_medium=web" target="_blank"><div class="dossier-card-tag">CVE Analysis</div><div class="dossier-card-title">OpenClaw Security: RCE in the Wild</div><div class="dossier-card-excerpt">CVE-2026-25253 exposed a critical remote code execution vulnerability. Breakdown of the exploit chain, impact analysis, and what it signals about AI tool security.</div></a>
-      <a class="dossier-card" href="https://open.substack.com/pub/darkdossier/p/breaking-the-machine-a-pentesters?r=7pat1d&utm_campaign=post&utm_medium=web" target="_blank"><div class="dossier-card-tag">Tradecraft</div><div class="dossier-card-title">Breaking the Machine: LLM Red Teaming</div><div class="dossier-card-excerpt">A five-phase offensive methodology for testing large language models. From reconnaissance through data exfiltration, how pentesters should approach the AI attack surface.</div></a>
+      <a class="dossier-card" href="https://darkdossier.substack.com" target="_blank"><div class="dossier-card-tag">AI Threats</div><div class="dossier-card-title">The Voice on the Line Is Not Human</div><div class="dossier-card-excerpt">AI-powered vishing attacks surged 442% in 2024. Voice cloning kits cost five dollars. Inside the emerging threat landscape that most organizations are not prepared for.</div></a>
+      <a class="dossier-card" href="https://darkdossier.substack.com" target="_blank"><div class="dossier-card-tag">CVE Analysis</div><div class="dossier-card-title">OpenClaw Security: RCE in the Wild</div><div class="dossier-card-excerpt">CVE-2026-25253 exposed a critical remote code execution vulnerability. Breakdown of the exploit chain, impact analysis, and what it signals about AI tool security.</div></a>
+      <a class="dossier-card" href="https://darkdossier.substack.com" target="_blank"><div class="dossier-card-tag">Tradecraft</div><div class="dossier-card-title">Breaking the Machine: LLM Red Teaming</div><div class="dossier-card-excerpt">A five-phase offensive methodology for testing large language models. From reconnaissance through data exfiltration, how pentesters should approach the AI attack surface.</div></a>
     </div>
   </div>
 </section>
@@ -437,7 +482,7 @@
   <div class="footer-inner">
     <div>
       <div class="footer-brand"><svg class="logo-cube" width="24" height="28"><use href="#bls-cube"/></svg><span class="footer-brand-name">Black Ledger</span></div>
-      <p class="footer-brand-text">Service-Disabled Veteran-Owned Small Business.</p>
+      <p class="footer-brand-text">Offensive security consulting specializing in physical penetration testing, social engineering, OSINT, and AI/LLM security. Service-Disabled Veteran-Owned Small Business. Charleston, SC.</p>
     </div>
     <div>
       <div class="footer-heading">Services</div>
@@ -446,7 +491,7 @@
         <li><a href="/services.html">Social Engineering</a></li>
         <li><a href="/services.html">OSINT &amp; Threat Profiling</a></li>
         <li><a href="/services.html">AI/LLM Security Testing</a></li>
-        <li><a href="/services.html">Red Team Operations</a></li>
+        <li><a href="/services.html">Adversary Simulation</a></li>
       </ul>
     </div>
     <div>
