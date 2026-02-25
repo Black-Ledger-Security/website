@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Black Ledger Security</title>
+<meta name="description" content="Black Ledger Security was founded by a Marine Corps veteran and career penetration tester with 15+ years of experience across cybersecurity, intelligence, and special operations.">
+<link rel="canonical" href="https://blackledgersecurity.com/about.html">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<!-- SVG DEFS -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <defs>
+    <linearGradient id="cubeLeft" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2a2a30"/><stop offset="100%" stop-color="#1a1a20"/></linearGradient>
+    <linearGradient id="cubeRight" x1="1" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#222228"/><stop offset="100%" stop-color="#151518"/></linearGradient>
+    <linearGradient id="cubeTop" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#2e2e34"/><stop offset="100%" stop-color="#252530"/></linearGradient>
+    <linearGradient id="spineGrad" x1="0.5" y1="0" x2="0.5" y2="1"><stop offset="0%" stop-color="#ff4444" stop-opacity="0.5"/><stop offset="30%" stop-color="#cc2222" stop-opacity="1"/><stop offset="70%" stop-color="#b41e1e" stop-opacity="1"/><stop offset="100%" stop-color="#ff3333" stop-opacity="0.4"/></linearGradient>
+    <filter id="spineBlur"><feGaussianBlur in="SourceGraphic" stdDeviation="2"/></filter>
+    <filter id="spineBlurWide"><feGaussianBlur in="SourceGraphic" stdDeviation="4"/></filter>
+  </defs>
+  <symbol id="bls-cube" viewBox="0 0 120 140">
+    <polygon points="60,18 108,34 60,50 12,34" fill="url(#cubeTop)" opacity="0.9"/>
+    <polygon points="12,34 60,50 60,118 12,102" fill="url(#cubeLeft)" opacity="0.85"/>
+    <polygon points="108,34 60,50 60,118 108,102" fill="url(#cubeRight)" opacity="0.8"/>
+    <line x1="60" y1="18" x2="12" y2="34" stroke="#3a3a42" stroke-width="0.5" opacity="0.4"/>
+    <line x1="60" y1="18" x2="108" y2="34" stroke="#3a3a42" stroke-width="0.5" opacity="0.4"/>
+    <line x1="12" y1="34" x2="12" y2="102" stroke="#2a2a32" stroke-width="0.5" opacity="0.3"/>
+    <line x1="108" y1="34" x2="108" y2="102" stroke="#2a2a32" stroke-width="0.5" opacity="0.25"/>
+    <line x1="12" y1="102" x2="60" y2="118" stroke="#2a2a32" stroke-width="0.5" opacity="0.25"/>
+    <line x1="108" y1="102" x2="60" y2="118" stroke="#2a2a32" stroke-width="0.5" opacity="0.25"/>
+    <line x1="60" y1="18" x2="60" y2="118" stroke="url(#spineGrad)" stroke-width="12" filter="url(#spineBlurWide)" opacity="0.25"/>
+    <line x1="60" y1="18" x2="60" y2="118" stroke="url(#spineGrad)" stroke-width="6" filter="url(#spineBlur)" opacity="0.5"/>
+    <line x1="60" y1="18" x2="60" y2="118" stroke="#cc2222" stroke-width="3" opacity="0.9"/>
+    <line x1="60" y1="20" x2="60" y2="116" stroke="#ee3333" stroke-width="1.5" opacity="0.7"/>
+    <line x1="60" y1="40" x2="60" y2="100" stroke="#ff5555" stroke-width="0.8" opacity="0.4"/>
+  </symbol>
+</svg>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <svg class="logo-cube" width="34" height="40"><use href="#bls-cube"/></svg>
+    <span class="nav-logo-text">Black Ledger</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/services.html">Services</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/#process">Process</a></li>
+    <li><a href="https://darkdossier.substack.com" target="_blank">Dark Dossier</a></li>
+    <li><a href="/contact.html" class="nav-cta">Get Assessment</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-overlay" id="mobileMenu">
+  <a href="/services.html" class="mobile-nav-link">Services</a>
+  <a href="/about.html" class="mobile-nav-link">About</a>
+  <a href="/#process" class="mobile-nav-link">Process</a>
+  <a href="https://darkdossier.substack.com" class="mobile-nav-link">Dark Dossier</a>
+  <a href="/contact.html" class="mobile-nav-link mobile-cta">Get Assessment</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="section-tag">The Operator</div>
+  <h1 class="section-title">About Black Ledger Security</h1>
+  <p class="section-desc">Founded by a Marine Corps veteran and career penetration tester with over 15 years of experience across cybersecurity, intelligence, and special operations.</p>
+</div>
+
+<!-- CONTENT -->
+<div class="content-block">
+
+  <h2>The Mission</h2>
+  <p>Most security programs are built around network defense. Firewalls, EDR, SIEM, vulnerability scanners. These tools matter. But they do not protect you from the attacker who walks through your front door with a cloned badge, calls your help desk with a convincing pretext, or manipulates your AI chatbot into leaking customer data.</p>
+  <p>Black Ledger Security exists to test the threats that live outside your technical perimeter. We specialize in the human attack surface: physical intrusion, social engineering, OSINT, and AI-enabled threats. These are the attack vectors that real adversaries use to bypass every technical control you own.</p>
+
+  <h2>The Founder</h2>
+  <p>Black Ledger Security was founded by a career offensive security professional who spent over a decade in the United States Marine Corps before transitioning to the private sector. Military assignments included Marine Corps Forces Special Operations Command (MARSOC), where he served on a Marine Special Operations Team in direct support of special operations and intelligence agency missions across multiple theaters and joint task forces, with deployments to the CENTCOM and INDOPACOM areas of responsibility.</p>
+  <p>Since transitioning to private sector cybersecurity in 2021, he has led social engineering teams, conducted solo physical penetration tests against secured corporate and government facilities, and delivered hundreds of offensive security assessments for clients across financial services, healthcare, manufacturing, defense, and critical infrastructure. His current focus is on how large language models, deepfake technology, and agentic AI systems are reshaping the offensive security landscape.</p>
+  <p>He is the author of Dark Dossier, a weekly threat intelligence publication covering AI security, social engineering tradecraft, and emerging attack techniques.</p>
+
+  <h2>Why Black Ledger</h2>
+  <p>We are not a generalist IT security firm. We do not sell antivirus, manage your firewall, or monitor your SIEM. We are offensive specialists. Every engagement is designed to answer one question: what would happen if a motivated adversary targeted your people, your facilities, or your AI systems?</p>
+  <p>Our background in special operations and intelligence gives us a perspective that most security consultants do not have. We think like adversaries because we trained as operators. We plan methodically, execute precisely, and report honestly.</p>
+  <p>Black Ledger Security is a Service-Disabled Veteran-Owned Small Business (SDVOSB) based in Charleston, South Carolina.</p>
+
+</div>
+
+<!-- CTA -->
+<section class="cta-section reveal">
+  <div class="section-tag">Engage</div>
+  <div class="section-title">Ready to Test Your Defenses?</div>
+  <div class="section-desc">The only way to know if your security works is to attack it. Let us find out what an adversary would find before they do.</div>
+  <a href="/contact.html" class="btn-primary">Request Assessment</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand"><svg class="logo-cube" width="24" height="28"><use href="#bls-cube"/></svg><span class="footer-brand-name">Black Ledger</span></div>
+      <p class="footer-brand-text">Offensive security consulting specializing in physical penetration testing, social engineering, OSINT, and AI/LLM security. Service-Disabled Veteran-Owned Small Business. Charleston, SC.</p>
+    </div>
+    <div>
+      <div class="footer-heading">Services</div>
+      <ul class="footer-links">
+        <li><a href="/services.html">Physical Penetration Testing</a></li>
+        <li><a href="/services.html">Social Engineering</a></li>
+        <li><a href="/services.html">OSINT &amp; Threat Profiling</a></li>
+        <li><a href="/services.html">AI/LLM Security Testing</a></li>
+        <li><a href="/services.html">Red Team Operations</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Connect</div>
+      <ul class="footer-links">
+        <li><a href="https://darkdossier.substack.com" target="_blank">Dark Dossier</a></li>
+        <li><a href="https://linkedin.com/company/black-ledger-security" target="_blank">LinkedIn</a></li>
+        <li><a href="https://x.com/BlackLedgerSec" target="_blank">X / Twitter</a></li>
+        <li><a href="https://github.com/Black-Ledger-Security" target="_blank">GitHub</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2026 Black Ledger Security, LLC. All rights reserved.</span>
+    <span class="footer-sdvosb">SDVOSB</span>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

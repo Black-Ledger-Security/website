@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Black Ledger Security</title>
+<meta name="description" content="Request an offensive security assessment from Black Ledger Security. Physical penetration testing, social engineering, AI/LLM security testing, and red team operations.">
+<link rel="canonical" href="https://blackledgersecurity.com/contact.html">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<!-- SVG DEFS -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <defs>
+    <linearGradient id="cubeLeft" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2a2a30"/><stop offset="100%" stop-color="#1a1a20"/></linearGradient>
+    <linearGradient id="cubeRight" x1="1" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#222228"/><stop offset="100%" stop-color="#151518"/></linearGradient>
+    <linearGradient id="cubeTop" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#2e2e34"/><stop offset="100%" stop-color="#252530"/></linearGradient>
+    <linearGradient id="spineGrad" x1="0.5" y1="0" x2="0.5" y2="1"><stop offset="0%" stop-color="#ff4444" stop-opacity="0.5"/><stop offset="30%" stop-color="#cc2222" stop-opacity="1"/><stop offset="70%" stop-color="#b41e1e" stop-opacity="1"/><stop offset="100%" stop-color="#ff3333" stop-opacity="0.4"/></linearGradient>
+    <filter id="spineBlur"><feGaussianBlur in="SourceGraphic" stdDeviation="2"/></filter>
+    <filter id="spineBlurWide"><feGaussianBlur in="SourceGraphic" stdDeviation="4"/></filter>
+  </defs>
+  <symbol id="bls-cube" viewBox="0 0 120 140">
+    <polygon points="60,18 108,34 60,50 12,34" fill="url(#cubeTop)" opacity="0.9"/>
+    <polygon points="12,34 60,50 60,118 12,102" fill="url(#cubeLeft)" opacity="0.85"/>
+    <polygon points="108,34 60,50 60,118 108,102" fill="url(#cubeRight)" opacity="0.8"/>
+    <line x1="60" y1="18" x2="12" y2="34" stroke="#3a3a42" stroke-width="0.5" opacity="0.4"/>
+    <line x1="60" y1="18" x2="108" y2="34" stroke="#3a3a42" stroke-width="0.5" opacity="0.4"/>
+    <line x1="12" y1="34" x2="12" y2="102" stroke="#2a2a32" stroke-width="0.5" opacity="0.3"/>
+    <line x1="108" y1="34" x2="108" y2="102" stroke="#2a2a32" stroke-width="0.5" opacity="0.25"/>
+    <line x1="12" y1="102" x2="60" y2="118" stroke="#2a2a32" stroke-width="0.5" opacity="0.25"/>
+    <line x1="108" y1="102" x2="60" y2="118" stroke="#2a2a32" stroke-width="0.5" opacity="0.25"/>
+    <line x1="60" y1="18" x2="60" y2="118" stroke="url(#spineGrad)" stroke-width="12" filter="url(#spineBlurWide)" opacity="0.25"/>
+    <line x1="60" y1="18" x2="60" y2="118" stroke="url(#spineGrad)" stroke-width="6" filter="url(#spineBlur)" opacity="0.5"/>
+    <line x1="60" y1="18" x2="60" y2="118" stroke="#cc2222" stroke-width="3" opacity="0.9"/>
+    <line x1="60" y1="20" x2="60" y2="116" stroke="#ee3333" stroke-width="1.5" opacity="0.7"/>
+    <line x1="60" y1="40" x2="60" y2="100" stroke="#ff5555" stroke-width="0.8" opacity="0.4"/>
+  </symbol>
+</svg>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <svg class="logo-cube" width="34" height="40"><use href="#bls-cube"/></svg>
+    <span class="nav-logo-text">Black Ledger</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/services.html">Services</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/#process">Process</a></li>
+    <li><a href="https://darkdossier.substack.com" target="_blank">Dark Dossier</a></li>
+    <li><a href="/contact.html" class="nav-cta">Get Assessment</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-overlay" id="mobileMenu">
+  <a href="/services.html" class="mobile-nav-link">Services</a>
+  <a href="/about.html" class="mobile-nav-link">About</a>
+  <a href="/#process" class="mobile-nav-link">Process</a>
+  <a href="https://darkdossier.substack.com" class="mobile-nav-link">Dark Dossier</a>
+  <a href="/contact.html" class="mobile-nav-link mobile-cta">Get Assessment</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="section-tag">Engage</div>
+  <h1 class="section-title">Request an Assessment</h1>
+  <p class="section-desc">Tell us about your organization and what you need tested. We will respond within one business day to schedule a scoping call.</p>
+</div>
+
+<!-- CONTACT CONTENT -->
+<div class="content-block">
+  <div class="contact-grid">
+
+    <div class="contact-form" id="contactForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" name="firstName" required>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" name="lastName" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="organization">Organization</label>
+        <input type="text" id="organization" name="organization">
+      </div>
+      <div class="form-group">
+        <label for="service">Service of Interest</label>
+        <select id="service" name="service">
+          <option value="">Select a service</option>
+          <option value="physical-pentest">Physical Penetration Testing</option>
+          <option value="physical-walkthrough">Physical Security Walkthrough</option>
+          <option value="vishing">Vishing Campaigns</option>
+          <option value="phishing">Phishing / Spear Phishing</option>
+          <option value="osint">OSINT &amp; Threat Profiling</option>
+          <option value="ai-llm">AI / LLM Security Testing</option>
+          <option value="deepfake">Deepfake AI Social Engineering</option>
+          <option value="redteam">Red Team Operations</option>
+          <option value="multiple">Multiple Services</option>
+          <option value="not-sure">Not Sure Yet</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Tell Us About Your Needs</label>
+        <textarea id="message" name="message" rows="6" placeholder="Describe your environment, what you want tested, timeline, or any other details that will help us scope a conversation."></textarea>
+      </div>
+      <button type="button" class="btn-primary" onclick="submitForm()" style="align-self:flex-start">Send Request</button>
+      <div id="formStatus" style="font-size:13px;color:var(--text-dim);margin-top:8px;display:none"></div>
+    </div>
+
+    <div class="contact-info">
+      <div class="contact-info-item">
+        <div class="contact-info-label">Email</div>
+        <div class="contact-info-value"><a href="mailto:contact@blackledgersecurity.com">contact@blackledgersecurity.com</a></div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-label">Location</div>
+        <div class="contact-info-value">Charleston, South Carolina<br>Available nationwide</div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-label">Response Time</div>
+        <div class="contact-info-value">Within one business day</div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-label">Business Classification</div>
+        <div class="contact-info-value">Service-Disabled Veteran-Owned<br>Small Business (SDVOSB)</div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-label">Connect</div>
+        <div class="contact-info-value">
+          <a href="https://linkedin.com/company/black-ledger-security" target="_blank">LinkedIn</a><br>
+          <a href="https://x.com/BlackLedgerSec" target="_blank">X / Twitter</a><br>
+          <a href="https://darkdossier.substack.com" target="_blank">Dark Dossier</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand"><svg class="logo-cube" width="24" height="28"><use href="#bls-cube"/></svg><span class="footer-brand-name">Black Ledger</span></div>
+      <p class="footer-brand-text">Offensive security consulting specializing in physical penetration testing, social engineering, OSINT, and AI/LLM security. Service-Disabled Veteran-Owned Small Business. Charleston, SC.</p>
+    </div>
+    <div>
+      <div class="footer-heading">Services</div>
+      <ul class="footer-links">
+        <li><a href="/services.html">Physical Penetration Testing</a></li>
+        <li><a href="/services.html">Social Engineering</a></li>
+        <li><a href="/services.html">OSINT &amp; Threat Profiling</a></li>
+        <li><a href="/services.html">AI/LLM Security Testing</a></li>
+        <li><a href="/services.html">Red Team Operations</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Connect</div>
+      <ul class="footer-links">
+        <li><a href="https://darkdossier.substack.com" target="_blank">Dark Dossier</a></li>
+        <li><a href="https://linkedin.com/company/black-ledger-security" target="_blank">LinkedIn</a></li>
+        <li><a href="https://x.com/BlackLedgerSec" target="_blank">X / Twitter</a></li>
+        <li><a href="https://github.com/Black-Ledger-Security" target="_blank">GitHub</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2026 Black Ledger Security, LLC. All rights reserved.</span>
+    <span class="footer-sdvosb">SDVOSB</span>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script>
+function submitForm(){
+  var firstName = document.getElementById('firstName').value;
+  var lastName = document.getElementById('lastName').value;
+  var email = document.getElementById('email').value;
+  var org = document.getElementById('organization').value;
+  var service = document.getElementById('service').value;
+  var message = document.getElementById('message').value;
+  var status = document.getElementById('formStatus');
+
+  if(!firstName||!lastName||!email){
+    status.style.display='block';
+    status.style.color='var(--crimson)';
+    status.textContent='Please fill in all required fields.';
+    return;
+  }
+
+  // Build mailto link as fallback (replace with form backend like Formspree later)
+  var subject = encodeURIComponent('Assessment Request from ' + firstName + ' ' + lastName);
+  var body = encodeURIComponent(
+    'Name: ' + firstName + ' ' + lastName + '\n' +
+    'Email: ' + email + '\n' +
+    'Organization: ' + (org||'N/A') + '\n' +
+    'Service: ' + (service||'N/A') + '\n\n' +
+    'Message:\n' + (message||'N/A')
+  );
+  window.location.href = 'mailto:contact@blackledgersecurity.com?subject=' + subject + '&body=' + body;
+
+  status.style.display='block';
+  status.style.color='var(--text-dim)';
+  status.textContent='Opening your email client. If it does not open, email us directly at contact@blackledgersecurity.com';
+}
+</script>
+</body>
+</html>
