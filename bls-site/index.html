@@ -216,16 +216,17 @@
 @media(max-width:768px){
   .hero{min-height:100svh}
   .hero-content{padding:0 20px}
+  .hero-cube{margin-top:20px}
   .hero-cube svg{width:90px!important;height:105px!important}
   .hero-brand-name{font-size:28px;letter-spacing:8px}
   .hero-brand-sub{font-size:10px;letter-spacing:6px;margin-bottom:32px}
   .hero-tag{font-size:9px;letter-spacing:3px;padding:6px 14px;margin-bottom:24px}
-  .hero-title{font-size:36px;margin-bottom:18px}
-  .hero-sub{font-size:13px;margin-bottom:32px}
+  .hero-title{font-size:32px;margin-bottom:18px}
+  .hero-sub{font-size:12px;margin-bottom:32px;padding:0 10px}
   .hero-buttons{flex-direction:column;align-items:center;gap:12px}
   .btn-primary,.btn-secondary{width:100%;max-width:280px;text-align:center}
-  .typing-container{margin-top:32px}
-  .typing-line{font-size:9px;letter-spacing:1px}
+  .typing-container{margin-top:32px;max-width:100%;overflow:hidden}
+  .typing-line{font-size:8px;letter-spacing:1px}
   .stats-bar{padding:32px 0}
   .stats-grid{padding:0 20px;gap:12px}
   .stat-number{font-size:32px}
@@ -233,8 +234,10 @@
   .service-card{padding:28px 20px}
   .about-inner{padding:64px 20px}
   .about-card{padding:20px}
-  .about-card-value{font-size:22px}
-  .about-card-sub{font-size:11px}
+  .about-card-sub{word-break:break-word;overflow-wrap:break-word}
+  .about-card-value{font-size:22px;word-break:break-word}
+  .section-title{font-size:28px}
+  .section-desc{font-size:12px}
   .lifecycle-steps{grid-template-columns:1fr;margin-top:40px}
   .lifecycle-step{padding:28px 20px}
   .step-number{font-size:44px}
@@ -244,8 +247,9 @@
   .dossier-preview{gap:16px;margin-top:36px}
 }
 @media(max-width:380px){
-  .hero-title{font-size:30px}
-  .hero-brand-name{font-size:24px;letter-spacing:6px}
+  .hero-title{font-size:28px}
+  .hero-brand-name{font-size:22px;letter-spacing:5px}
+  .hero-sub{font-size:11px}
   .stat-number{font-size:28px}
 }
 </style>
