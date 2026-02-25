@@ -311,7 +311,22 @@
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-cube">
-      <svg class="logo-cube" width="120" height="140"><use href="#bls-cube"/></svg>
+      <svg class="logo-cube" width="120" height="140" viewBox="0 0 120 140">
+        <polygon points="60,18 108,34 60,50 12,34" fill="url(#cubeTop)" opacity="0.9"/>
+        <polygon points="12,34 60,50 60,118 12,102" fill="url(#cubeLeft)" opacity="0.85"/>
+        <polygon points="108,34 60,50 60,118 108,102" fill="url(#cubeRight)" opacity="0.8"/>
+        <line x1="60" y1="18" x2="12" y2="34" stroke="#3a3a42" stroke-width="0.5" opacity="0.4"/>
+        <line x1="60" y1="18" x2="108" y2="34" stroke="#3a3a42" stroke-width="0.5" opacity="0.4"/>
+        <line x1="12" y1="34" x2="12" y2="102" stroke="#2a2a32" stroke-width="0.5" opacity="0.3"/>
+        <line x1="108" y1="34" x2="108" y2="102" stroke="#2a2a32" stroke-width="0.5" opacity="0.25"/>
+        <line x1="12" y1="102" x2="60" y2="118" stroke="#2a2a32" stroke-width="0.5" opacity="0.25"/>
+        <line x1="108" y1="102" x2="60" y2="118" stroke="#2a2a32" stroke-width="0.5" opacity="0.25"/>
+        <line x1="60" y1="18" x2="60" y2="118" stroke="url(#spineGrad)" stroke-width="12" filter="url(#spineBlurWide)" opacity="0.25"/>
+        <line x1="60" y1="18" x2="60" y2="118" stroke="url(#spineGrad)" stroke-width="6" filter="url(#spineBlur)" opacity="0.5"/>
+        <line x1="60" y1="18" x2="60" y2="118" stroke="#cc2222" stroke-width="3" opacity="0.9"/>
+        <line x1="60" y1="20" x2="60" y2="116" stroke="#ee3333" stroke-width="1.5" opacity="0.7"/>
+        <line x1="60" y1="40" x2="60" y2="100" stroke="#ff5555" stroke-width="0.8" opacity="0.4"/>
+      </svg>
     </div>
     <div class="hero-brand-name">Black Ledger</div>
     <div class="hero-brand-sub">Security</div>
