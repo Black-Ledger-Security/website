@@ -312,17 +312,25 @@
   <div class="hero-content">
     <div class="hero-cube">
       <svg class="logo-cube" width="120" height="140" viewBox="0 0 120 140">
-        <polygon points="60,18 108,34 60,50 12,34" fill="url(#cubeTop)" opacity="0.9"/>
-        <polygon points="12,34 60,50 60,118 12,102" fill="url(#cubeLeft)" opacity="0.85"/>
-        <polygon points="108,34 60,50 60,118 108,102" fill="url(#cubeRight)" opacity="0.8"/>
+        <defs>
+          <linearGradient id="heroCubeLeft" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2a2a30"/><stop offset="100%" stop-color="#1a1a20"/></linearGradient>
+          <linearGradient id="heroCubeRight" x1="1" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#222228"/><stop offset="100%" stop-color="#151518"/></linearGradient>
+          <linearGradient id="heroCubeTop" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#2e2e34"/><stop offset="100%" stop-color="#252530"/></linearGradient>
+          <linearGradient id="heroSpineGrad" x1="0.5" y1="0" x2="0.5" y2="1"><stop offset="0%" stop-color="#ff4444" stop-opacity="0.5"/><stop offset="30%" stop-color="#cc2222" stop-opacity="1"/><stop offset="70%" stop-color="#b41e1e" stop-opacity="1"/><stop offset="100%" stop-color="#ff3333" stop-opacity="0.4"/></linearGradient>
+          <filter id="heroSpineBlur"><feGaussianBlur in="SourceGraphic" stdDeviation="2"/></filter>
+          <filter id="heroSpineBlurWide"><feGaussianBlur in="SourceGraphic" stdDeviation="4"/></filter>
+        </defs>
+        <polygon points="60,18 108,34 60,50 12,34" fill="url(#heroCubeTop)" opacity="0.9"/>
+        <polygon points="12,34 60,50 60,118 12,102" fill="url(#heroCubeLeft)" opacity="0.85"/>
+        <polygon points="108,34 60,50 60,118 108,102" fill="url(#heroCubeRight)" opacity="0.8"/>
         <line x1="60" y1="18" x2="12" y2="34" stroke="#3a3a42" stroke-width="0.5" opacity="0.4"/>
         <line x1="60" y1="18" x2="108" y2="34" stroke="#3a3a42" stroke-width="0.5" opacity="0.4"/>
         <line x1="12" y1="34" x2="12" y2="102" stroke="#2a2a32" stroke-width="0.5" opacity="0.3"/>
         <line x1="108" y1="34" x2="108" y2="102" stroke="#2a2a32" stroke-width="0.5" opacity="0.25"/>
         <line x1="12" y1="102" x2="60" y2="118" stroke="#2a2a32" stroke-width="0.5" opacity="0.25"/>
         <line x1="108" y1="102" x2="60" y2="118" stroke="#2a2a32" stroke-width="0.5" opacity="0.25"/>
-        <line x1="60" y1="18" x2="60" y2="118" stroke="url(#spineGrad)" stroke-width="12" filter="url(#spineBlurWide)" opacity="0.25"/>
-        <line x1="60" y1="18" x2="60" y2="118" stroke="url(#spineGrad)" stroke-width="6" filter="url(#spineBlur)" opacity="0.5"/>
+        <line x1="60" y1="18" x2="60" y2="118" stroke="url(#heroSpineGrad)" stroke-width="12" filter="url(#heroSpineBlurWide)" opacity="0.25"/>
+        <line x1="60" y1="18" x2="60" y2="118" stroke="url(#heroSpineGrad)" stroke-width="6" filter="url(#heroSpineBlur)" opacity="0.5"/>
         <line x1="60" y1="18" x2="60" y2="118" stroke="#cc2222" stroke-width="3" opacity="0.9"/>
         <line x1="60" y1="20" x2="60" y2="116" stroke="#ee3333" stroke-width="1.5" opacity="0.7"/>
         <line x1="60" y1="40" x2="60" y2="100" stroke="#ff5555" stroke-width="0.8" opacity="0.4"/>
