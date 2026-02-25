@@ -66,17 +66,6 @@
   margin:0 auto 8px;
   animation:typing 2.5s steps(55) 2.2s forwards,blinkCaret 0.6s step-end 2.2s infinite;
 }
-.hero-scroll{
-  position:absolute;bottom:40px;left:50%;transform:translateX(-50%);
-  z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;
-  animation:fadeInUp 0.8s ease 1.9s both;
-}
-.hero-scroll span{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--text-muted)}
-.scroll-line{
-  width:1px;height:40px;
-  background:linear-gradient(to bottom,var(--crimson),transparent);
-  animation:scrollPulse 2s ease infinite;
-}
 .stats-bar{
   background:var(--surface);
   border-top:1px solid var(--border);border-bottom:1px solid var(--border);
@@ -196,7 +185,7 @@
 }
 @keyframes typing{from{width:0}to{width:100%}}
 @keyframes blinkCaret{from,to{border-color:transparent}50%{border-color:var(--crimson)}}
-@keyframes scrollPulse{0%,100%{opacity:0.3}50%{opacity:1}}
+
 
 @media(max-width:1024px){
   .services-grid{grid-template-columns:1fr}
@@ -217,7 +206,6 @@
   .btn-primary,.btn-secondary{width:100%;max-width:280px;text-align:center}
   .typing-container{margin-top:32px}
   .typing-line{font-size:9px;letter-spacing:1px}
-  .hero-scroll{bottom:24px}
   .stats-bar{padding:32px 0}
   .stats-grid{padding:0 20px;gap:12px}
   .stat-number{font-size:32px}
@@ -318,10 +306,7 @@
       <div class="typing-line">Offensive Security &nbsp;// &nbsp;AI Threat Testing &nbsp;// &nbsp;Adversary Simulation</div>
     </div>
   </div>
-  <div class="hero-scroll">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
-  </div>
+
 </section>
 
 <!-- STATS BAR -->
