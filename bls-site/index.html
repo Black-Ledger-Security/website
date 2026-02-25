@@ -26,8 +26,18 @@
   display:flex;flex-direction:column;align-items:center;
 }
 .hero-cube{margin-bottom:24px;opacity:0;animation:cubeReveal 1.4s ease 0.1s both}
-.hero-logo-cube{
-  display:inline-block;
+.cube-glow-wrapper{
+  position:relative;display:inline-block;
+  border-radius:8px;
+  animation:cubeGlow 3s ease infinite;
+}
+@keyframes cubeGlow{
+  0%,100%{
+    filter:drop-shadow(0 0 4px rgba(180,30,30,0.2)) drop-shadow(0 0 8px rgba(180,30,30,0.1));
+  }
+  50%{
+    filter:drop-shadow(0 0 15px rgba(180,30,30,0.7)) drop-shadow(0 0 30px rgba(180,30,30,0.4)) drop-shadow(0 0 50px rgba(180,30,30,0.15));
+  }
 }
 .hero-brand-name{
   font-family:var(--serif);font-size:52px;font-weight:400;
@@ -206,7 +216,7 @@
 @media(max-width:768px){
   .hero{min-height:100svh}
   .hero-content{padding:0 20px}
-  .hero-logo-cube{width:130px!important;height:145px!important}
+  .hero-cube svg{width:90px!important;height:105px!important}
   .hero-brand-name{font-size:28px;letter-spacing:8px}
   .hero-brand-sub{font-size:10px;letter-spacing:6px;margin-bottom:32px}
   .hero-tag{font-size:9px;letter-spacing:3px;padding:6px 14px;margin-bottom:24px}
@@ -302,41 +312,10 @@
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-cube">
-      <div class="hero-cube">
-        <svg class="hero-logo-cube" width="180" height="200" viewBox="-30 -10 180 160" overflow="visible">
-          <defs>
-            <filter id="heroGlow" x="-100%" y="-100%" width="300%" height="300%" filterUnits="objectBoundingBox">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur">
-                <animate attributeName="stdDeviation" values="6;16;6" dur="3s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1"/>
-              </feGaussianBlur>
-              <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0.35 0 0 0 0 0.02 0 0 0 0 0.02 0 0 0 0.5 0" result="coloredGlow">
-                <animate attributeName="values" values="1 0 0 0 0.35 0 0 0 0 0.02 0 0 0 0 0.02 0 0 0 0.4 0;1 0 0 0 0.6 0 0 0 0 0.05 0 0 0 0 0.05 0 0 0 0.9 0;1 0 0 0 0.35 0 0 0 0 0.02 0 0 0 0 0.02 0 0 0 0.4 0" dur="3s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1"/>
-              </feColorMatrix>
-              <feMerge>
-                <feMergeNode in="coloredGlow"/>
-                <feMergeNode in="SourceGraphic"/>
-              </feMerge>
-            </filter>
-          </defs>
-          <g filter="url(#heroGlow)">
-            <!-- Inlined cube geometry (not <use>) so glow filter is not clipped -->
-            <polygon points="60,18 108,34 60,50 12,34" fill="url(#cubeTop)" opacity="0.9"/>
-            <polygon points="12,34 60,50 60,118 12,102" fill="url(#cubeLeft)" opacity="0.85"/>
-            <polygon points="108,34 60,50 60,118 108,102" fill="url(#cubeRight)" opacity="0.8"/>
-            <line x1="60" y1="18" x2="12" y2="34" stroke="#3a3a42" stroke-width="0.5" opacity="0.4"/>
-            <line x1="60" y1="18" x2="108" y2="34" stroke="#3a3a42" stroke-width="0.5" opacity="0.4"/>
-            <line x1="12" y1="34" x2="12" y2="102" stroke="#2a2a32" stroke-width="0.5" opacity="0.3"/>
-            <line x1="108" y1="34" x2="108" y2="102" stroke="#2a2a32" stroke-width="0.5" opacity="0.25"/>
-            <line x1="12" y1="102" x2="60" y2="118" stroke="#2a2a32" stroke-width="0.5" opacity="0.25"/>
-            <line x1="108" y1="102" x2="60" y2="118" stroke="#2a2a32" stroke-width="0.5" opacity="0.25"/>
-            <line x1="60" y1="18" x2="60" y2="118" stroke="url(#spineGrad)" stroke-width="12" filter="url(#spineBlurWide)" opacity="0.25"/>
-            <line x1="60" y1="18" x2="60" y2="118" stroke="url(#spineGrad)" stroke-width="6" filter="url(#spineBlur)" opacity="0.5"/>
-            <line x1="60" y1="18" x2="60" y2="118" stroke="#cc2222" stroke-width="3" opacity="0.9"/>
-            <line x1="60" y1="20" x2="60" y2="116" stroke="#ee3333" stroke-width="1.5" opacity="0.7"/>
-            <line x1="60" y1="40" x2="60" y2="100" stroke="#ff5555" stroke-width="0.8" opacity="0.4"/>
-          </g>
-        </svg>
+      <div class="cube-glow-wrapper">
+        <svg class="logo-cube" width="120" height="140"><use href="#bls-cube"/></svg>
       </div>
+    </div>
     <div class="hero-brand-name">Black Ledger</div>
     <div class="hero-brand-sub">Security</div>
     <div class="hero-tag">Veteran Owned Small Business</div>
