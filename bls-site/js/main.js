@@ -1,11 +1,15 @@
-(function(){
+document.addEventListener('DOMContentLoaded', function(){
+
   // SCROLL REVEAL
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  },{threshold:0.02});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el)});
+  var revealEls = document.querySelectorAll('.reveal');
+  if(revealEls.length > 0){
+    var revealObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    },{threshold:0.02});
+    revealEls.forEach(function(el){revealObs.observe(el)});
+  }
 
   // ANIMATED COUNTERS
   var statNums = document.querySelectorAll('.stat-number[data-target]');
@@ -41,7 +45,7 @@
     if(nav) nav.style.background=window.scrollY>100?'rgba(12,12,16,0.95)':'rgba(12,12,16,0.85)';
   });
 
-  // DESKTOP DROPDOWN
+  // DESKTOP DROPDOWN - show on hover
   var servicesWrap = document.querySelector('.nav-services-wrap');
   var navDropdown = document.querySelector('.nav-dropdown');
   if(servicesWrap && navDropdown){
@@ -64,29 +68,43 @@
 
   function openMenu(){
     menuOpen = true;
-    hamburger.classList.add('active');
-    menuBackdrop.style.cssText = 'display:block;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:140;';
-    mobileMenu.style.cssText = 'display:block;position:fixed;top:0;right:0;width:85vw;max-width:380px;height:100%;background:#16161e;border-left:1px solid #222230;z-index:150;overflow-y:auto;';
+    if(hamburger) hamburger.classList.add('active');
+    if(menuBackdrop) menuBackdrop.style.cssText = 'display:block;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:140;';
+    if(mobileMenu) mobileMenu.style.cssText = 'display:block;position:fixed;top:0;right:0;width:85vw;max-width:380px;height:100%;background:#16161e;border-left:1px solid #222230;z-index:150;overflow-y:auto;';
     document.body.style.overflow = 'hidden';
   }
 
   function closeMenu(){
     menuOpen = false;
-    hamburger.classList.remove('active');
-    mobileMenu.style.cssText = 'display:none;';
-    menuBackdrop.style.cssText = 'display:none;';
+    if(hamburger) hamburger.classList.remove('active');
+    if(mobileMenu) mobileMenu.style.display = 'none';
+    if(menuBackdrop) menuBackdrop.style.display = 'none';
     document.body.style.overflow = '';
   }
 
-  if(hamburger) hamburger.addEventListener('click', function(){
-    menuOpen ? closeMenu() : openMenu();
-  });
-  if(menuClose) menuClose.addEventListener('click', closeMenu);
-  if(menuBackdrop) menuBackdrop.addEventListener('click', closeMenu);
+  if(hamburger){
+    hamburger.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      menuOpen ? closeMenu() : openMenu();
+    });
+  }
+  if(menuClose){
+    menuClose.addEventListener('click', function(e){
+      e.preventDefault();
+      closeMenu();
+    });
+  }
+  if(menuBackdrop){
+    menuBackdrop.addEventListener('click', function(){
+      closeMenu();
+    });
+  }
 
   // Mobile services dropdown
   if(mobileServicesToggle && mobileServicesSub){
-    mobileServicesToggle.addEventListener('click', function(){
+    mobileServicesToggle.addEventListener('click', function(e){
+      e.preventDefault();
       var isOpen = mobileServicesSub.style.display === 'block';
       mobileServicesSub.style.display = isOpen ? 'none' : 'block';
       mobileServicesToggle.classList.toggle('expanded');
@@ -98,4 +116,5 @@
   menuLinks.forEach(function(link){
     link.addEventListener('click', closeMenu);
   });
-})();
+
+});

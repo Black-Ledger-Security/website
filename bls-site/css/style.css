@@ -262,6 +262,8 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:64px
   transition:transform 0.3s;color:var(--text-muted);
 }
 .nav-services-wrap:hover .chevron-down{transform:rotate(180deg)}
+/* CSS hover shows dropdown even without JS */
+.nav-services-wrap:hover .nav-dropdown{display:block!important}
 .nav-dropdown{
   display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);
   min-width:280px;padding-top:12px;
