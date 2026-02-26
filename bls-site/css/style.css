@@ -54,6 +54,7 @@ nav{
   text-transform:uppercase;color:var(--text-dim);
   text-decoration:none;transition:color 0.2s;
 }
+.nav-links>li>a{display:block}
 .nav-links a:hover{color:#fff}
 .nav-cta{
   font-size:11px!important;font-weight:600!important;letter-spacing:2px;
@@ -262,22 +263,23 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:64px
 }
 .nav-services-wrap:hover .chevron-down{transform:rotate(180deg)}
 .nav-dropdown{
-  position:absolute;top:100%;left:50%;transform:translateX(-50%);
+  display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);
   min-width:280px;padding-top:12px;
-  opacity:0;visibility:hidden;transition:all 0.25s ease;
+  z-index:300;
 }
-.nav-services-wrap:hover .nav-dropdown{opacity:1;visibility:visible}
+.nav-services-wrap:hover .nav-dropdown{display:block}
 .nav-dropdown-inner{
   background:var(--surface);border:1px solid var(--border);
   padding:8px 0;box-shadow:0 12px 40px rgba(0,0,0,0.5);
 }
 .nav-dropdown a{
   display:block;padding:10px 20px;
-  font-size:12px;font-weight:400;letter-spacing:1.5px;
-  text-transform:uppercase;color:var(--text-dim);
+  font-size:12px!important;font-weight:400!important;letter-spacing:1.5px!important;
+  text-transform:uppercase;color:var(--text-dim)!important;
   text-decoration:none;transition:all 0.2s;
+  white-space:nowrap;
 }
-.nav-dropdown a:hover{color:var(--crimson);background:rgba(180,30,30,0.06);padding-left:24px}
+.nav-dropdown a:hover{color:var(--crimson)!important;background:rgba(180,30,30,0.06);padding-left:24px}
 
 /* ===================== SERVICE PAGE CARDS ===================== */
 .service-detail-grid{
@@ -358,7 +360,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:64px
 }
 @media(max-width:768px){
   nav{padding:0 20px;height:64px}
-  .nav-links{display:none}
+  .nav-links{display:none!important}
   .hamburger{display:block}
   .nav-logo-text{font-size:16px;letter-spacing:4px}
   .section{padding:64px 20px}
