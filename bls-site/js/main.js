@@ -65,31 +65,17 @@
   function openMenu(){
     menuOpen = true;
     hamburger.classList.add('active');
-    // Show elements
-    mobileMenu.style.display = 'block';
-    menuBackdrop.style.display = 'block';
-    // Add transition
-    mobileMenu.style.transition = 'transform 0.3s ease';
-    menuBackdrop.style.transition = 'opacity 0.3s ease';
-    menuBackdrop.style.opacity = '0';
-    // Force reflow before animating
-    void mobileMenu.offsetHeight;
-    // Animate in
-    mobileMenu.style.transform = 'translateX(0)';
-    menuBackdrop.style.opacity = '1';
+    menuBackdrop.style.cssText = 'display:block;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:140;';
+    mobileMenu.style.cssText = 'display:block;position:fixed;top:0;right:0;width:85vw;max-width:380px;height:100%;background:#16161e;border-left:1px solid #222230;z-index:150;overflow-y:auto;';
     document.body.style.overflow = 'hidden';
   }
 
   function closeMenu(){
     menuOpen = false;
     hamburger.classList.remove('active');
-    mobileMenu.style.transform = 'translateX(100%)';
-    menuBackdrop.style.opacity = '0';
+    mobileMenu.style.cssText = 'display:none;';
+    menuBackdrop.style.cssText = 'display:none;';
     document.body.style.overflow = '';
-    setTimeout(function(){
-      mobileMenu.style.display = 'none';
-      menuBackdrop.style.display = 'none';
-    }, 300);
   }
 
   if(hamburger) hamburger.addEventListener('click', function(){
