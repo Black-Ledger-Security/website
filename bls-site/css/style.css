@@ -194,10 +194,11 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:64px
 .mobile-overlay a:last-child{border-bottom:none}
 .mobile-overlay a:hover{color:var(--crimson)}
 .mobile-overlay .mobile-cta{
-  margin-top:24px;font-family:var(--mono);font-size:12px;
+  margin-top:24px;margin-bottom:80px;font-family:var(--mono);font-size:12px;
   font-weight:600;letter-spacing:2px;padding:14px 32px;
   border:1px solid var(--crimson);color:var(--crimson);
   width:auto;border-bottom:1px solid var(--crimson);
+  flex-shrink:0;
 }
 .mobile-overlay .mobile-cta:hover{background:var(--crimson);color:#fff}
 
