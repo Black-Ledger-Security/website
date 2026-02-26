@@ -41,7 +41,7 @@
     if(nav) nav.style.background=window.scrollY>100?'rgba(12,12,16,0.95)':'rgba(12,12,16,0.85)';
   });
 
-  // DESKTOP DROPDOWN - show/hide on hover via JS since inline display:none
+  // DESKTOP DROPDOWN
   var servicesWrap = document.querySelector('.nav-services-wrap');
   var navDropdown = document.querySelector('.nav-dropdown');
   if(servicesWrap && navDropdown){
@@ -54,44 +54,53 @@
   }
 
   // MOBILE MENU
-  var hamburger=document.getElementById('hamburger');
-  var mobileMenu=document.getElementById('mobileMenu');
-  var menuBackdrop=document.getElementById('menuBackdrop');
-  var menuClose=document.getElementById('menuClose');
-  var mobileServicesToggle=document.getElementById('mobileServicesToggle');
-  var mobileServicesSub=document.getElementById('mobileServicesSub');
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
+  var menuBackdrop = document.getElementById('menuBackdrop');
+  var menuClose = document.getElementById('menuClose');
+  var mobileServicesToggle = document.getElementById('mobileServicesToggle');
+  var mobileServicesSub = document.getElementById('mobileServicesSub');
+  var menuOpen = false;
 
   function openMenu(){
+    menuOpen = true;
     hamburger.classList.add('active');
-    mobileMenu.style.display='block';
-    menuBackdrop.style.display='block';
-    // Trigger reflow then animate
-    mobileMenu.offsetHeight;
-    mobileMenu.style.transform='translateX(0)';
-    menuBackdrop.style.opacity='1';
-    document.body.style.overflow='hidden';
-  }
-  function closeMenu(){
-    hamburger.classList.remove('active');
-    mobileMenu.style.transform='translateX(100%)';
-    menuBackdrop.style.opacity='0';
-    document.body.style.overflow='';
-    setTimeout(function(){
-      mobileMenu.style.display='none';
-      menuBackdrop.style.display='none';
-    },300);
+    // Show elements
+    mobileMenu.style.display = 'block';
+    menuBackdrop.style.display = 'block';
+    // Add transition
+    mobileMenu.style.transition = 'transform 0.3s ease';
+    menuBackdrop.style.transition = 'opacity 0.3s ease';
+    menuBackdrop.style.opacity = '0';
+    // Force reflow before animating
+    void mobileMenu.offsetHeight;
+    // Animate in
+    mobileMenu.style.transform = 'translateX(0)';
+    menuBackdrop.style.opacity = '1';
+    document.body.style.overflow = 'hidden';
   }
 
-  if(hamburger) hamburger.addEventListener('click',function(){
-    var isOpen = mobileMenu.style.transform === 'translateX(0px)' || mobileMenu.style.transform === 'translateX(0)';
-    isOpen ? closeMenu() : openMenu();
+  function closeMenu(){
+    menuOpen = false;
+    hamburger.classList.remove('active');
+    mobileMenu.style.transform = 'translateX(100%)';
+    menuBackdrop.style.opacity = '0';
+    document.body.style.overflow = '';
+    setTimeout(function(){
+      mobileMenu.style.display = 'none';
+      menuBackdrop.style.display = 'none';
+    }, 300);
+  }
+
+  if(hamburger) hamburger.addEventListener('click', function(){
+    menuOpen ? closeMenu() : openMenu();
   });
-  if(menuClose) menuClose.addEventListener('click',closeMenu);
-  if(menuBackdrop) menuBackdrop.addEventListener('click',closeMenu);
+  if(menuClose) menuClose.addEventListener('click', closeMenu);
+  if(menuBackdrop) menuBackdrop.addEventListener('click', closeMenu);
 
   // Mobile services dropdown
   if(mobileServicesToggle && mobileServicesSub){
-    mobileServicesToggle.addEventListener('click',function(){
+    mobileServicesToggle.addEventListener('click', function(){
       var isOpen = mobileServicesSub.style.display === 'block';
       mobileServicesSub.style.display = isOpen ? 'none' : 'block';
       mobileServicesToggle.classList.toggle('expanded');
@@ -101,6 +110,6 @@
   // Close menu on link click
   var menuLinks = document.querySelectorAll('.mobile-menu-link:not(.mobile-services-toggle), .mobile-services-sub a, .mobile-menu-cta');
   menuLinks.forEach(function(link){
-    link.addEventListener('click',closeMenu);
+    link.addEventListener('click', closeMenu);
   });
 })();
