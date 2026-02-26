@@ -184,17 +184,17 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:64px
 }
 .mobile-overlay.open{display:flex;opacity:1}
 .mobile-overlay a{
-  font-family:var(--serif);font-size:32px;font-weight:400;
+  font-family:var(--serif);font-size:26px;font-weight:400;
   letter-spacing:4px;text-transform:uppercase;
   color:var(--smoke);text-decoration:none;
-  padding:16px 0;transition:color 0.2s;
+  padding:14px 0;transition:color 0.2s;
   border-bottom:1px solid var(--border);
   width:80%;text-align:center;
 }
 .mobile-overlay a:last-child{border-bottom:none}
 .mobile-overlay a:hover{color:var(--crimson)}
 .mobile-overlay .mobile-cta{
-  margin-top:32px;font-family:var(--mono);font-size:12px;
+  margin-top:24px;font-family:var(--mono);font-size:12px;
   font-weight:600;letter-spacing:2px;padding:14px 32px;
   border:1px solid var(--crimson);color:var(--crimson);
   width:auto;border-bottom:1px solid var(--crimson);
