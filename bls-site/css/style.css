@@ -165,7 +165,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:64px
 /* ===================== HAMBURGER ===================== */
 .hamburger{
   display:none;background:none;border:none;cursor:pointer;
-  padding:8px;z-index:200;position:fixed;right:20px;top:18px;
+  padding:8px;z-index:200;
 }
 .hamburger span{
   display:block;width:24px;height:2px;background:var(--smoke);
@@ -350,7 +350,6 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:64px
   footer{padding:40px 20px 24px}
   .footer-inner{gap:28px}
   .footer-bottom{flex-direction:column;gap:12px;text-align:center}
-  .hamburger{top:18px;right:20px}
 }
 @media(max-width:380px){
   .section-title{font-size:28px}
