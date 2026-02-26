@@ -7,7 +7,7 @@
 <meta name="description" content="Black Ledger Security was founded by a Marine Corps veteran and career penetration tester with 15+ years of experience across cybersecurity, intelligence, and special operations.">
 <link rel="canonical" href="https://blackledgersecurity.com/about.html">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/style.css?v=4">
+<link rel="stylesheet" href="/css/style.css?v=5">
 </head>
 <body>
 
@@ -68,37 +68,33 @@
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
-
-<!-- MOBILE MENU -->
-<div class="mobile-menu-backdrop" id="menuBackdrop" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);backdrop-filter:blur(8px);z-index:140;opacity:0"></div>
-<div class="mobile-menu" id="mobileMenu" style="display:none;position:fixed;top:0;right:0;width:min(380px,85vw);height:100dvh;background:#16161e;border-left:1px solid #222230;z-index:150;overflow-y:auto;transform:translateX(100%)">
-  <div class="mobile-menu-header">
+<div id="mobileMenu" style="display:none">
+  <div class="mm-header">
     <a href="/" class="nav-logo">
       <svg class="logo-cube" width="24" height="28"><use href="#bls-cube"/></svg>
       <span class="nav-logo-text">Black Ledger</span>
     </a>
-    <button class="mobile-menu-close" id="menuClose" aria-label="Close menu">&#10005;</button>
+    <button id="menuClose" class="mm-close" aria-label="Close menu">&#10005;</button>
   </div>
-  <div class="mobile-menu-nav">
-    <div class="mobile-menu-link mobile-services-toggle" id="mobileServicesToggle">
-      Services <span class="chevron">&#9662;</span>
+  <div class="mm-body">
+    <div class="mm-link mm-services-toggle" id="mobileServicesToggle">Services <span class="mm-chevron">&#9662;</span></div>
+    <div id="mobileServicesSub" style="display:none">
+      <a href="/services/physical-penetration-testing.html" class="mm-sub-link">Physical Penetration Testing</a>
+      <a href="/services/physical-security-walkthrough.html" class="mm-sub-link">Physical Security Walkthrough</a>
+      <a href="/services/vishing.html" class="mm-sub-link">Vishing Campaigns</a>
+      <a href="/services/phishing.html" class="mm-sub-link">Phishing &amp; Spear Phishing</a>
+      <a href="/services/osint.html" class="mm-sub-link">OSINT &amp; Threat Profiling</a>
+      <a href="/services/ai-llm-security.html" class="mm-sub-link">AI / LLM Security Testing</a>
+      <a href="/services/deepfake-social-engineering.html" class="mm-sub-link">Deepfake AI Social Engineering</a>
+      <a href="/services/adversary-simulation.html" class="mm-sub-link">Adversary Simulation</a>
     </div>
-    <div class="mobile-services-sub" id="mobileServicesSub" style="display:none">
-      <a href="/services/physical-penetration-testing.html">Physical Penetration Testing</a>
-      <a href="/services/physical-security-walkthrough.html">Physical Security Walkthrough</a>
-      <a href="/services/vishing.html">Vishing Campaigns</a>
-      <a href="/services/phishing.html">Phishing &amp; Spear Phishing</a>
-      <a href="/services/osint.html">OSINT &amp; Threat Profiling</a>
-      <a href="/services/ai-llm-security.html">AI / LLM Security Testing</a>
-      <a href="/services/deepfake-social-engineering.html">Deepfake AI Social Engineering</a>
-      <a href="/services/adversary-simulation.html">Adversary Simulation</a>
-    </div>
-    <a href="/about.html" class="mobile-menu-link">About</a>
-    <a href="/#process" class="mobile-menu-link">Process</a>
-    <a href="https://darkdossier.substack.com" target="_blank" class="mobile-menu-link">Dark Dossier</a>
+    <a href="/about.html" class="mm-link">About</a>
+    <a href="/#process" class="mm-link">Process</a>
+    <a href="https://darkdossier.substack.com" target="_blank" class="mm-link">Dark Dossier</a>
+    <a href="/contact.html" class="mm-cta">Get Assessment</a>
   </div>
-  <a href="/contact.html" class="mobile-menu-cta">Get Assessment</a>
 </div>
+
 
 
 
@@ -174,7 +170,7 @@
   </div>
 </footer>
 
-<script src="/js/main.js?v=4"></script>
+<script src="/js/main.js?v=5"></script>
 </body>
 </html>
 

@@ -176,83 +176,53 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:64px
 .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
 
 /* ===================== MOBILE MENU PANEL ===================== */
-.mobile-menu-backdrop{
-  display:none;position:fixed;inset:0;
-  background:rgba(0,0,0,0.6);backdrop-filter:blur(8px);
-  z-index:140;opacity:0;transition:opacity 0.3s ease;
+#mobileMenu{
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  background:var(--obsidian);z-index:999;
+  overflow-y:auto;
 }
-.mobile-menu-backdrop.open{display:block;opacity:1}
-
-.mobile-menu{
-  display:none;position:fixed;top:0;right:0;
-  width:min(380px,85vw);height:100dvh;
-  background:var(--surface);
-  border-left:1px solid var(--border);
-  z-index:150;overflow-y:auto;
-  transform:translateX(100%);transition:transform 0.3s ease;
-}
-.mobile-menu.open{display:block;transform:translateX(0)}
-
-.mobile-menu-header{
+.mm-header{
   display:flex;align-items:center;justify-content:space-between;
-  padding:16px 24px;border-bottom:1px solid var(--border);
-  background:rgba(12,12,16,0.95);
+  padding:16px 20px;border-bottom:1px solid var(--border);
 }
-.mobile-menu-header .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.mobile-menu-header .nav-logo-text{
-  font-family:var(--serif);font-size:16px;font-weight:400;
-  letter-spacing:5px;color:#e8e4df;text-transform:uppercase;
-}
-.mobile-menu-close{
-  background:none;border:1px solid var(--border);
+.mm-close{
+  background:none;border:1px solid var(--border);color:var(--smoke);
   width:36px;height:36px;display:flex;align-items:center;justify-content:center;
-  cursor:pointer;color:var(--smoke);font-size:18px;
-  transition:all 0.2s;border-radius:4px;
+  cursor:pointer;font-size:18px;border-radius:4px;
 }
-.mobile-menu-close:hover{border-color:var(--smoke);color:#fff}
-
-.mobile-menu-nav{padding:16px 0}
-.mobile-menu-link{
-  display:block;padding:14px 24px;
+.mm-close:hover{border-color:var(--smoke);color:#fff}
+.mm-body{padding:16px 0}
+.mm-link{
+  display:block;padding:14px 20px;
   font-family:var(--mono);font-size:13px;font-weight:500;
   letter-spacing:2px;text-transform:uppercase;
   color:var(--smoke);text-decoration:none;
-  transition:all 0.2s;border-bottom:1px solid var(--border);
-}
-.mobile-menu-link:hover{color:#fff;background:rgba(180,30,30,0.06)}
-
-/* Services dropdown toggle */
-.mobile-services-toggle{
-  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid var(--border);
   cursor:pointer;
 }
-.mobile-services-toggle .chevron{
-  transition:transform 0.3s;font-size:10px;color:var(--text-muted);
+.mm-link:hover{color:#fff;background:rgba(180,30,30,0.06)}
+.mm-services-toggle{
+  display:flex;align-items:center;justify-content:space-between;
 }
-.mobile-services-toggle.expanded .chevron{transform:rotate(180deg)}
-
-.mobile-services-sub{
-  display:none;background:var(--obsidian-mid);
-  border-bottom:1px solid var(--border);
-}
-.mobile-services-sub.open{display:block}
-.mobile-services-sub a{
-  display:block;padding:11px 24px 11px 40px;
+.mm-chevron{font-size:10px;color:var(--text-muted);transition:transform 0.3s}
+.mm-services-toggle.expanded .mm-chevron{transform:rotate(180deg)}
+.mm-sub-link{
+  display:block;padding:11px 20px 11px 36px;
   font-family:var(--mono);font-size:12px;font-weight:400;
   letter-spacing:1px;color:var(--text-dim);text-decoration:none;
-  transition:all 0.2s;border-bottom:1px solid rgba(34,34,48,0.5);
+  border-bottom:1px solid rgba(34,34,48,0.5);
+  background:var(--obsidian-mid);
 }
-.mobile-services-sub a:last-child{border-bottom:none}
-.mobile-services-sub a:hover{color:var(--crimson);padding-left:44px}
-
-.mobile-menu-cta{
-  margin:24px;display:block;text-align:center;
+.mm-sub-link:last-child{border-bottom:1px solid var(--border)}
+.mm-sub-link:hover{color:var(--crimson);padding-left:40px}
+.mm-cta{
+  display:block;margin:24px 20px;text-align:center;
   font-family:var(--mono);font-size:11px;font-weight:600;
   letter-spacing:2px;text-transform:uppercase;
   padding:14px 24px;border:1px solid var(--crimson);
-  color:var(--crimson);text-decoration:none;transition:all 0.2s;
+  color:var(--crimson);text-decoration:none;
 }
-.mobile-menu-cta:hover{background:var(--crimson);color:#fff}
+.mm-cta:hover{background:var(--crimson);color:#fff}
 
 /* ===================== DESKTOP SERVICES DROPDOWN ===================== */
 .nav-services-wrap{position:relative}
