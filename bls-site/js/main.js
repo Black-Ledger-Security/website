@@ -4,7 +4,7 @@
     entries.forEach(function(entry){
       if(entry.isIntersecting) entry.target.classList.add('visible');
     });
-  },{threshold:0.1});
+  },{threshold:0.02});
   document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el)});
 
   // ANIMATED COUNTERS
