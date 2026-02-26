@@ -2,19 +2,20 @@
   var c=document.getElementById('surveillance-canvas');
   if(!c) return;
   var ctx=c.getContext('2d');
+  var hero=c.parentElement;
   var w,h,t=0;
   var R='rgba(180,30,30,';
 
-  function resize(){w=c.width=window.innerWidth;h=c.height=window.innerHeight;}
+  function resize(){w=c.width=hero.offsetWidth;h=c.height=hero.offsetHeight;}
   resize();
   window.addEventListener('resize',resize);
 
   var tgts=[
-    {x:0.28,y:0.32,vx:0.22,vy:0.14,id:'TGT-001',role:'IT ADMIN',threat:94,trail:[]},
-    {x:0.55,y:0.42,vx:-0.18,vy:0.2,id:'TGT-002',role:'FACILITIES MGR',threat:87,trail:[]},
-    {x:0.42,y:0.22,vx:0.14,vy:-0.1,id:'TGT-003',role:'RECEPTIONIST',threat:62,trail:[]},
-    {x:0.72,y:0.58,vx:-0.2,vy:-0.16,id:'TGT-004',role:'SECURITY',threat:71,trail:[]},
-    {x:0.18,y:0.62,vx:0.12,vy:0.22,id:'TGT-005',role:'EXEC ASST',threat:83,trail:[]}
+    {x:0.05,y:0.08,vx:0.22,vy:0.14,id:'TGT-001',role:'IT ADMIN',threat:94,trail:[]},
+    {x:0.92,y:0.1,vx:-0.18,vy:0.2,id:'TGT-002',role:'FACILITIES MGR',threat:87,trail:[]},
+    {x:0.06,y:0.85,vx:0.14,vy:-0.1,id:'TGT-003',role:'RECEPTIONIST',threat:62,trail:[]},
+    {x:0.93,y:0.82,vx:-0.2,vy:-0.16,id:'TGT-004',role:'SECURITY',threat:71,trail:[]},
+    {x:0.05,y:0.5,vx:0.12,vy:0.22,id:'TGT-005',role:'EXEC ASST',threat:83,trail:[]}
   ];
 
   function grid(){
@@ -94,12 +95,37 @@
   }
 
   function updateTgts(){
+    // Center exclusion zone (where title/buttons/tag live)
+    var zoneL=w*0.15, zoneR=w*0.85;
+    var zoneT=h*0.15, zoneB=h*0.75;
+    // On mobile, make zone wider
+    if(w<768){zoneL=w*0.05;zoneR=w*0.95;zoneT=h*0.1;zoneB=h*0.8;}
+
     for(var i=0;i<tgts.length;i++){
       var tg=tgts[i];
       if(!tg.px){tg.px=tg.x*w;tg.py=tg.y*h;}
       tg.px+=tg.vx;tg.py+=tg.vy;
+
+      // Bounce off edges
       if(tg.px<70||tg.px>w-100)tg.vx*=-1;
       if(tg.py<90||tg.py>h-90)tg.vy*=-1;
+
+      // Bounce off center exclusion zone
+      var inZone=tg.px>zoneL&&tg.px<zoneR&&tg.py>zoneT&&tg.py<zoneB;
+      if(inZone){
+        // Figure out which edge is closest and push back
+        var dL=tg.px-zoneL, dR=zoneR-tg.px;
+        var dT=tg.py-zoneT, dB=zoneB-tg.py;
+        var minD=Math.min(dL,dR,dT,dB);
+        if(minD===dL||minD===dR){
+          tg.vx=minD===dL?-Math.abs(tg.vx):Math.abs(tg.vx);
+          tg.px+=tg.vx*3;
+        } else {
+          tg.vy=minD===dT?-Math.abs(tg.vy):Math.abs(tg.vy);
+          tg.py+=tg.vy*3;
+        }
+      }
+
       tg.vx+=(Math.random()-0.5)*0.004;
       tg.vy+=(Math.random()-0.5)*0.004;
       tg.vx=Math.max(-0.4,Math.min(0.4,tg.vx));

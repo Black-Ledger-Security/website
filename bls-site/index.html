@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/css/style.css">
 <style>
 /* Homepage-specific styles */
-#surveillance-canvas{position:absolute;inset:0;z-index:0}
+#surveillance-canvas{position:absolute;inset:0;z-index:0;pointer-events:none}
 .hero{
   position:relative;min-height:100vh;
   display:flex;align-items:center;justify-content:center;overflow:hidden;
@@ -248,7 +248,7 @@
   .dossier-preview{grid-template-columns:1fr}
 }
 @media(max-width:768px){
-  .hero{min-height:100svh;overflow:visible}
+  .hero{min-height:100svh}
   .hero-content{padding:0 24px}
   .hero-cube{margin-top:20px}
   .hero-cube svg{width:90px!important;height:105px!important}
