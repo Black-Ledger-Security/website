@@ -164,7 +164,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:64px
 /* ===================== HAMBURGER ===================== */
 .hamburger{
   display:none;background:none;border:none;cursor:pointer;
-  padding:8px;z-index:200;position:relative;
+  padding:8px;z-index:200;position:fixed;right:20px;top:18px;
 }
 .hamburger span{
   display:block;width:24px;height:2px;background:var(--smoke);
@@ -174,33 +174,110 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:64px
 .hamburger.active span:nth-child(2){opacity:0}
 .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
 
-.mobile-overlay{
-  display:none;position:fixed;top:0;left:0;
-  width:100vw;height:100dvh;
-  background:rgba(12,12,16,0.97);backdrop-filter:blur(20px);
-  z-index:150;
-  flex-direction:column;align-items:center;justify-content:center;
-  gap:0;opacity:0;transition:opacity 0.3s ease;
-  overflow-y:auto;
+/* ===================== MOBILE MENU PANEL ===================== */
+.mobile-menu-backdrop{
+  display:none;position:fixed;inset:0;
+  background:rgba(0,0,0,0.6);backdrop-filter:blur(8px);
+  z-index:140;opacity:0;transition:opacity 0.3s ease;
 }
-.mobile-overlay.open{display:flex;opacity:1}
-.mobile-overlay a{
-  font-family:var(--serif);font-size:26px;font-weight:400;
-  letter-spacing:4px;text-transform:uppercase;
+.mobile-menu-backdrop.open{display:block;opacity:1}
+
+.mobile-menu{
+  display:none;position:fixed;top:0;right:0;
+  width:min(380px,85vw);height:100dvh;
+  background:var(--surface);
+  border-left:1px solid var(--border);
+  z-index:150;overflow-y:auto;
+  transform:translateX(100%);transition:transform 0.3s ease;
+}
+.mobile-menu.open{display:block;transform:translateX(0)}
+
+.mobile-menu-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 24px;border-bottom:1px solid var(--border);
+  background:rgba(12,12,16,0.95);
+}
+.mobile-menu-header .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.mobile-menu-header .nav-logo-text{
+  font-family:var(--serif);font-size:16px;font-weight:400;
+  letter-spacing:5px;color:#e8e4df;text-transform:uppercase;
+}
+.mobile-menu-close{
+  background:none;border:1px solid var(--border);
+  width:36px;height:36px;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;color:var(--smoke);font-size:18px;
+  transition:all 0.2s;border-radius:4px;
+}
+.mobile-menu-close:hover{border-color:var(--smoke);color:#fff}
+
+.mobile-menu-nav{padding:16px 0}
+.mobile-menu-link{
+  display:block;padding:14px 24px;
+  font-family:var(--mono);font-size:13px;font-weight:500;
+  letter-spacing:2px;text-transform:uppercase;
   color:var(--smoke);text-decoration:none;
-  padding:14px 0;transition:color 0.2s;
+  transition:all 0.2s;border-bottom:1px solid var(--border);
+}
+.mobile-menu-link:hover{color:#fff;background:rgba(180,30,30,0.06)}
+
+/* Services dropdown toggle */
+.mobile-services-toggle{
+  display:flex;align-items:center;justify-content:space-between;
+  cursor:pointer;
+}
+.mobile-services-toggle .chevron{
+  transition:transform 0.3s;font-size:10px;color:var(--text-muted);
+}
+.mobile-services-toggle.expanded .chevron{transform:rotate(180deg)}
+
+.mobile-services-sub{
+  display:none;background:var(--obsidian-mid);
   border-bottom:1px solid var(--border);
-  width:80%;text-align:center;
 }
-.mobile-overlay a:last-child{border-bottom:none}
-.mobile-overlay a:hover{color:var(--crimson)}
-.mobile-overlay .mobile-cta{
-  margin-top:24px;font-family:var(--mono);font-size:12px;
-  font-weight:600;letter-spacing:2px;padding:14px 32px;
-  border:1px solid var(--crimson);color:var(--crimson);
-  width:auto;border-bottom:1px solid var(--crimson);
+.mobile-services-sub.open{display:block}
+.mobile-services-sub a{
+  display:block;padding:11px 24px 11px 40px;
+  font-family:var(--mono);font-size:12px;font-weight:400;
+  letter-spacing:1px;color:var(--text-dim);text-decoration:none;
+  transition:all 0.2s;border-bottom:1px solid rgba(34,34,48,0.5);
 }
-.mobile-overlay .mobile-cta:hover{background:var(--crimson);color:#fff}
+.mobile-services-sub a:last-child{border-bottom:none}
+.mobile-services-sub a:hover{color:var(--crimson);padding-left:44px}
+
+.mobile-menu-cta{
+  margin:24px;display:block;text-align:center;
+  font-family:var(--mono);font-size:11px;font-weight:600;
+  letter-spacing:2px;text-transform:uppercase;
+  padding:14px 24px;border:1px solid var(--crimson);
+  color:var(--crimson);text-decoration:none;transition:all 0.2s;
+}
+.mobile-menu-cta:hover{background:var(--crimson);color:#fff}
+
+/* ===================== DESKTOP SERVICES DROPDOWN ===================== */
+.nav-services-wrap{position:relative}
+.nav-services-wrap>a{cursor:pointer}
+.nav-services-wrap .chevron-down{
+  display:inline-block;font-size:8px;margin-left:4px;
+  transition:transform 0.3s;color:var(--text-muted);
+}
+.nav-services-wrap:hover .chevron-down{transform:rotate(180deg)}
+.nav-dropdown{
+  position:absolute;top:100%;left:50%;transform:translateX(-50%);
+  min-width:280px;padding-top:12px;
+  opacity:0;visibility:hidden;transition:all 0.25s ease;
+}
+.nav-services-wrap:hover .nav-dropdown{opacity:1;visibility:visible}
+.nav-dropdown-inner{
+  background:var(--surface);border:1px solid var(--border);
+  padding:8px 0;box-shadow:0 12px 40px rgba(0,0,0,0.5);
+}
+.nav-dropdown a{
+  display:block;padding:10px 20px;
+  font-size:12px;font-weight:400;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--text-dim);
+  text-decoration:none;transition:all 0.2s;
+}
+.nav-dropdown a:hover{color:var(--crimson);background:rgba(180,30,30,0.06);padding-left:24px}
 
 /* ===================== SERVICE PAGE CARDS ===================== */
 .service-detail-grid{
@@ -299,6 +376,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:64px
   footer{padding:40px 20px 24px}
   .footer-inner{gap:28px}
   .footer-bottom{flex-direction:column;gap:12px;text-align:center}
+  .hamburger{top:18px;right:20px}
 }
 @media(max-width:380px){
   .section-title{font-size:28px}

@@ -328,23 +328,60 @@
     <span class="nav-logo-text">Black Ledger</span>
   </a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="/services.html">Services</a></li>
+    <li class="nav-services-wrap">
+      <a href="/services.html">Services <span class="chevron-down">&#9662;</span></a>
+      <div class="nav-dropdown">
+        <div class="nav-dropdown-inner">
+          <a href="/services/physical-penetration-testing.html">Physical Penetration Testing</a>
+          <a href="/services/physical-security-walkthrough.html">Physical Security Walkthrough</a>
+          <a href="/services/vishing.html">Vishing Campaigns</a>
+          <a href="/services/phishing.html">Phishing &amp; Spear Phishing</a>
+          <a href="/services/osint.html">OSINT &amp; Threat Profiling</a>
+          <a href="/services/ai-llm-security.html">AI / LLM Security Testing</a>
+          <a href="/services/deepfake-social-engineering.html">Deepfake AI Social Engineering</a>
+          <a href="/services/adversary-simulation.html">Adversary Simulation</a>
+        </div>
+      </div>
+    </li>
     <li><a href="/about.html">About</a></li>
-    <li><a href="#process">Process</a></li>
+    <li><a href="/#process">Process</a></li>
     <li><a href="https://darkdossier.substack.com" target="_blank">Dark Dossier</a></li>
     <li><a href="/contact.html" class="nav-cta">Get Assessment</a></li>
   </ul>
-  <button class="hamburger" id="hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
-<div class="mobile-overlay" id="mobileMenu">
-  <a href="/services.html" class="mobile-nav-link">Services</a>
-  <a href="/about.html" class="mobile-nav-link">About</a>
-  <a href="#process" class="mobile-nav-link">Process</a>
-  <a href="https://darkdossier.substack.com" class="mobile-nav-link">Dark Dossier</a>
-  <a href="/contact.html" class="mobile-nav-link mobile-cta">Get Assessment</a>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu-backdrop" id="menuBackdrop"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-header">
+    <a href="/" class="nav-logo">
+      <svg class="logo-cube" width="24" height="28"><use href="#bls-cube"/></svg>
+      <span class="nav-logo-text">Black Ledger</span>
+    </a>
+    <button class="mobile-menu-close" id="menuClose" aria-label="Close menu">&#10005;</button>
+  </div>
+  <div class="mobile-menu-nav">
+    <div class="mobile-menu-link mobile-services-toggle" id="mobileServicesToggle">
+      Services <span class="chevron">&#9662;</span>
+    </div>
+    <div class="mobile-services-sub" id="mobileServicesSub">
+      <a href="/services/physical-penetration-testing.html">Physical Penetration Testing</a>
+      <a href="/services/physical-security-walkthrough.html">Physical Security Walkthrough</a>
+      <a href="/services/vishing.html">Vishing Campaigns</a>
+      <a href="/services/phishing.html">Phishing &amp; Spear Phishing</a>
+      <a href="/services/osint.html">OSINT &amp; Threat Profiling</a>
+      <a href="/services/ai-llm-security.html">AI / LLM Security Testing</a>
+      <a href="/services/deepfake-social-engineering.html">Deepfake AI Social Engineering</a>
+      <a href="/services/adversary-simulation.html">Adversary Simulation</a>
+    </div>
+    <a href="/about.html" class="mobile-menu-link">About</a>
+    <a href="/#process" class="mobile-menu-link">Process</a>
+    <a href="https://darkdossier.substack.com" target="_blank" class="mobile-menu-link">Dark Dossier</a>
+  </div>
+  <a href="/contact.html" class="mobile-menu-cta">Get Assessment</a>
 </div>
+
 
 <!-- HERO -->
 <section class="hero">
@@ -409,14 +446,14 @@
   <div class="section-title">Offensive Security Services</div>
   <div class="section-desc">We specialize in the threats that live outside your network perimeter. The ones that walk through your front door, call your employees, and manipulate your AI systems.</div>
   <div class="services-grid">
-    <a class="service-card" href="/services.html#physical-pentest"><div class="service-icon">&#9670;</div><div class="service-name">Physical Penetration Testing</div><div class="service-desc">Full-scope covert intrusion testing. Badge cloning, lock bypass, tailgating, facility breach, and objective-based operations against your physical security controls.</div><div class="service-tag">Covert Operations &#8594;</div></a>
-    <a class="service-card" href="/services.html#physical-walkthrough"><div class="service-icon">&#9678;</div><div class="service-name">Physical Security Walkthrough</div><div class="service-desc">Collaborative, overt assessment of facility security posture. We walk your environment with your team to identify gaps in access control, surveillance, and response procedures.</div><div class="service-tag">Overt Assessment &#8594;</div></a>
-    <a class="service-card" href="/services.html#vishing"><div class="service-icon">&#9742;</div><div class="service-name">Vishing Campaigns</div><div class="service-desc">Voice-based social engineering targeting your personnel. Custom pretexts designed to test security awareness, credential handling, and information disclosure over the phone.</div><div class="service-tag">Voice Social Engineering &#8594;</div></a>
-    <a class="service-card" href="/services.html#phishing"><div class="service-icon">&#9993;</div><div class="service-name">Phishing &amp; Spear Phishing</div><div class="service-desc">Organization-wide simulations and OSINT-driven, APT-style targeted campaigns. From broad awareness testing to executive-focused operations that mirror real threat actors.</div><div class="service-tag">Email Social Engineering &#8594;</div></a>
-    <a class="service-card" href="/services.html#osint"><div class="service-icon">&#9681;</div><div class="service-name">OSINT &amp; Threat Profiling</div><div class="service-desc">Comprehensive digital footprint analysis, exposed credential assessment, and executive threat profiling. We show you what an adversary already knows about your organization.</div><div class="service-tag">Intelligence Collection &#8594;</div></a>
-    <a class="service-card" href="/services.html#ai-llm"><div class="service-icon">&#10064;</div><div class="service-name">AI / LLM Security Testing</div><div class="service-desc">Prompt injection, jailbreaking, guardrail bypass, data exfiltration, and tool exploitation testing against your deployed language models and AI-powered applications.</div><div class="service-tag">Emerging Threat &#8594;</div></a>
-    <a class="service-card" href="/services.html#deepfake"><div class="service-icon">&#9676;</div><div class="service-name">Deepfake AI Social Engineering</div><div class="service-desc">Next-generation vishing using voice cloning and video deepfake technology. Test whether your organization can detect and respond to AI-generated impersonation attacks.</div><div class="service-tag">Novel Capability &#8594;</div></a>
-    <a class="service-card" href="/services.html#redteam"><div class="service-icon">&#9733;</div><div class="service-name">Adversary Simulation</div><div class="service-desc">Full kill chain operations: OSINT, onsite recon, vishing, spear phishing, AI deepfakes, physical breach, network implant deployment, and internal penetration testing. Custom-built around your threat profile.</div><div class="service-tag">Full Spectrum &#8594;</div></a>
+    <a class="service-card" href="/services/physical-penetration-testing.html"><div class="service-icon">&#9670;</div><div class="service-name">Physical Penetration Testing</div><div class="service-desc">Full-scope covert intrusion testing. Badge cloning, lock bypass, tailgating, facility breach, and objective-based operations against your physical security controls.</div><div class="service-tag">Covert Operations &#8594;</div></a>
+    <a class="service-card" href="/services/physical-security-walkthrough.html"><div class="service-icon">&#9678;</div><div class="service-name">Physical Security Walkthrough</div><div class="service-desc">Collaborative, overt assessment of facility security posture. We walk your environment with your team to identify gaps in access control, surveillance, and response procedures.</div><div class="service-tag">Overt Assessment &#8594;</div></a>
+    <a class="service-card" href="/services/vishing.html"><div class="service-icon">&#9742;</div><div class="service-name">Vishing Campaigns</div><div class="service-desc">Voice-based social engineering targeting your personnel. Custom pretexts designed to test security awareness, credential handling, and information disclosure over the phone.</div><div class="service-tag">Voice Social Engineering &#8594;</div></a>
+    <a class="service-card" href="/services/phishing.html"><div class="service-icon">&#9993;</div><div class="service-name">Phishing &amp; Spear Phishing</div><div class="service-desc">Organization-wide simulations and OSINT-driven, APT-style targeted campaigns. From broad awareness testing to executive-focused operations that mirror real threat actors.</div><div class="service-tag">Email Social Engineering &#8594;</div></a>
+    <a class="service-card" href="/services/osint.html"><div class="service-icon">&#9681;</div><div class="service-name">OSINT &amp; Threat Profiling</div><div class="service-desc">Comprehensive digital footprint analysis, exposed credential assessment, and executive threat profiling. We show you what an adversary already knows about your organization.</div><div class="service-tag">Intelligence Collection &#8594;</div></a>
+    <a class="service-card" href="/services/ai-llm-security.html"><div class="service-icon">&#10064;</div><div class="service-name">AI / LLM Security Testing</div><div class="service-desc">Prompt injection, jailbreaking, guardrail bypass, data exfiltration, and tool exploitation testing against your deployed language models and AI-powered applications.</div><div class="service-tag">Emerging Threat &#8594;</div></a>
+    <a class="service-card" href="/services/deepfake-social-engineering.html"><div class="service-icon">&#9676;</div><div class="service-name">Deepfake AI Social Engineering</div><div class="service-desc">Next-generation vishing using voice cloning and video deepfake technology. Test whether your organization can detect and respond to AI-generated impersonation attacks.</div><div class="service-tag">Novel Capability &#8594;</div></a>
+    <a class="service-card" href="/services/adversary-simulation.html"><div class="service-icon">&#9733;</div><div class="service-name">Adversary Simulation</div><div class="service-desc">Full kill chain operations: OSINT, onsite recon, vishing, spear phishing, AI deepfakes, physical breach, network implant deployment, and internal penetration testing. Custom-built around your threat profile.</div><div class="service-tag">Full Spectrum &#8594;</div></a>
   </div>
 </section>
 
@@ -500,11 +537,11 @@
     <div>
       <div class="footer-heading">Services</div>
       <ul class="footer-links">
-        <li><a href="/services.html#physical-pentest">Physical Penetration Testing</a></li>
-        <li><a href="/services.html#vishing">Social Engineering</a></li>
-        <li><a href="/services.html#osint">OSINT &amp; Threat Profiling</a></li>
-        <li><a href="/services.html#ai-llm">AI/LLM Security Testing</a></li>
-        <li><a href="/services.html#redteam">Adversary Simulation</a></li>
+        <li><a href="/services/physical-penetration-testing.html">Physical Penetration Testing</a></li>
+        <li><a href="/services/vishing.html">Social Engineering</a></li>
+        <li><a href="/services/osint.html">OSINT &amp; Threat Profiling</a></li>
+        <li><a href="/services/ai-llm-security.html">AI/LLM Security Testing</a></li>
+        <li><a href="/services/adversary-simulation.html">Adversary Simulation</a></li>
       </ul>
     </div>
     <div>
