@@ -41,6 +41,18 @@
     if(nav) nav.style.background=window.scrollY>100?'rgba(12,12,16,0.95)':'rgba(12,12,16,0.85)';
   });
 
+  // DESKTOP DROPDOWN - show/hide on hover via JS since inline display:none
+  var servicesWrap = document.querySelector('.nav-services-wrap');
+  var navDropdown = document.querySelector('.nav-dropdown');
+  if(servicesWrap && navDropdown){
+    servicesWrap.addEventListener('mouseenter',function(){
+      navDropdown.style.display='block';
+    });
+    servicesWrap.addEventListener('mouseleave',function(){
+      navDropdown.style.display='none';
+    });
+  }
+
   // MOBILE MENU
   var hamburger=document.getElementById('hamburger');
   var mobileMenu=document.getElementById('mobileMenu');
@@ -51,19 +63,28 @@
 
   function openMenu(){
     hamburger.classList.add('active');
-    mobileMenu.classList.add('open');
-    menuBackdrop.classList.add('open');
+    mobileMenu.style.display='block';
+    menuBackdrop.style.display='block';
+    // Trigger reflow then animate
+    mobileMenu.offsetHeight;
+    mobileMenu.style.transform='translateX(0)';
+    menuBackdrop.style.opacity='1';
     document.body.style.overflow='hidden';
   }
   function closeMenu(){
     hamburger.classList.remove('active');
-    mobileMenu.classList.remove('open');
-    menuBackdrop.classList.remove('open');
+    mobileMenu.style.transform='translateX(100%)';
+    menuBackdrop.style.opacity='0';
     document.body.style.overflow='';
+    setTimeout(function(){
+      mobileMenu.style.display='none';
+      menuBackdrop.style.display='none';
+    },300);
   }
 
   if(hamburger) hamburger.addEventListener('click',function(){
-    mobileMenu.classList.contains('open') ? closeMenu() : openMenu();
+    var isOpen = mobileMenu.style.transform === 'translateX(0px)' || mobileMenu.style.transform === 'translateX(0)';
+    isOpen ? closeMenu() : openMenu();
   });
   if(menuClose) menuClose.addEventListener('click',closeMenu);
   if(menuBackdrop) menuBackdrop.addEventListener('click',closeMenu);
@@ -71,8 +92,9 @@
   // Mobile services dropdown
   if(mobileServicesToggle && mobileServicesSub){
     mobileServicesToggle.addEventListener('click',function(){
+      var isOpen = mobileServicesSub.style.display === 'block';
+      mobileServicesSub.style.display = isOpen ? 'none' : 'block';
       mobileServicesToggle.classList.toggle('expanded');
-      mobileServicesSub.classList.toggle('open');
     });
   }
 
